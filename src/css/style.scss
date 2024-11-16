@@ -1,0 +1,296 @@
+@use "partial";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: partial.$text-color;
+}
+
+p{
+    font-family: partial.$font-text;
+    font-size: 20px;
+}
+
+h1, h2{
+    font-family: partial.$font-titel;
+}
+
+h3, h4{
+    font-family: partial.$font-header;
+}
+
+.body{
+    background-color: partial.$bg-color;
+}
+
+.App {
+    padding-bottom: 100px; 
+    background-color: partial.$bg-color;
+  }
+
+/* header */
+.header {
+    background-color: partial.$primary-color;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    border-bottom-right-radius: 50px;
+
+    .date{
+        font-size: 12px;
+        margin-top: 20px;
+    }
+
+    h1{
+        margin-bottom: 20px;
+    }
+
+    .img-gear{
+        background-color: none;
+        width: 40px;
+    }
+}
+
+/* footer */
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: partial.$primary-color; 
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; 
+    border-top-left-radius: 50px;
+
+    p {
+        font-size: 10px;
+    }
+  
+    .button-container{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .link-button{
+        width: 40px;
+        background-color: partial.$accent-color;
+        border-radius: 50%;
+        padding: 5px;
+    }
+}
+
+/*Home-page*/
+.home-page{
+    margin: 20px;
+
+    a{
+        text-decoration: none;
+    }
+   
+    li{
+        font-family: partial.$font-header; 
+        font-size: 24px;
+        font-weight: 600;
+        list-style-type: none;
+        border: 2px solid black;
+        border-radius: 10px;   
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .create-list{
+        display: flex;
+        justify-content: right;
+
+        input{
+            height: 35px;
+            border: 2px solid black;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background-color: partial.$bg-color;
+
+            &::placeholder{
+                font-weight: bold;
+                color: partial.$text-color;
+                opacity: 0.5;
+                font-family: partial.$font-text;
+                padding: 5px;
+            }
+        }
+
+        button{
+            padding: 0 5px 0 5px;
+            border: 2px solid black;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            font-size: 24px;
+            background-color: partial.$bg-color;
+        }
+    }
+
+    .list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .delete-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    
+}
+
+/* Create a new task */
+.new-task{
+    margin: 10px;
+    width: 90%;
+    text-align: center;
+
+    h2{
+        padding-bottom: 10px;
+        text-align: left;
+    }
+
+    #list-select{
+        width: 100%;
+        padding: 5px;
+        font-family: partial.$font-text;
+        border-radius: 7px;
+        border: solid 1px black;
+        color: partial.$text-color;
+        background-color: partial.$secondary-color;
+    }
+
+    input, textarea{
+        margin-top: 10px;
+        width: 100%;
+        padding: 7px;
+        border-radius: 7px;
+        border: solid 1px black;
+        background-color: partial.$secondary-color;
+
+            &::placeholder{
+                color: partial.$text-color;
+                font-family: partial.$font-text;
+            }
+    }
+
+    textarea{
+        height: 100px;
+    }
+
+    .priority-container {
+        margin: 1em 0;
+
+        label {
+            font-weight: bold;
+            font-family: partial.$font-text;
+        }
+
+        select {
+            padding: 0.5em;
+            width: 100%;
+            border-radius: 7px;
+            border: solid 1px black;
+            background-color: partial.$secondary-color;
+            font-family: partial.$font-text;
+            color: partial.$text-color;
+            cursor: pointer;
+
+                &:focus {
+                    border-color: partial.$accent-color;
+                    outline: none;
+                    box-shadow: partial.$accent-color;
+                }
+        }
+    }
+
+    button{
+        width: 170px;
+        height: 50px;
+        border-radius: 20px;
+        color: partial.$bg-color;
+        font-size: 24px;
+        font-weight: 400;
+        font-family: partial.$font-text;
+        background-color: partial.$accent-color;
+    }
+    
+}
+
+/* Tasks page */
+.list-page{
+    margin: 10px;
+    color: partial.$bg-color;
+    font-family: partial.$font-text;
+
+    h2{
+        margin-bottom: 10px;
+    }
+
+        .task-item {
+            display: flex; 
+            align-items: center;
+            margin-bottom: 15px; 
+            padding: 10px;
+
+            .task-content {
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                .task-checkbox {
+                    width: 20px; 
+                    height: 20px;
+                    margin-right: 15px;
+                }
+
+                .task-name {
+                    font-size: 18px;
+                    flex-grow: 1;
+                    border-bottom: solid 1px black;
+        
+                    &.completed {
+                        text-decoration: line-through;
+                        color: grey;
+                    }
+                }
+
+                .task-actions {
+                    display: flex;
+                    gap: 10px; 
+                    margin-left: 15px;
+                    
+                    button {
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+            
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Styling for priority label */
+        .priority-label {
+            font-size: 14px;
+            color: #888;
+            margin-left: 10px;
+        }
+
+}
