@@ -19,6 +19,7 @@
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         grid-gap: 1.2em;
+        justify-items: flex-start;
         width: 40%;
         img{
             cursor: pointer;
@@ -34,7 +35,7 @@
         padding: 1.2em;
         display: grid;
         align-items: center;
-        justify-items: center;
+        justify-items: flex-start;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 5em);
         column-gap: 1.2em;
