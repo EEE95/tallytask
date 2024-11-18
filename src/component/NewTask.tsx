@@ -27,21 +27,28 @@ function NewTask({ lists, tasks, setTasks }) {
             setError("Please enter a task name.");
             return;
         }
-
-        const updatedTasks = { ...tasks };
-        if (!updatedTasks[selectedList]) {
-            updatedTasks[selectedList] = [];
-        }
-        updatedTasks[selectedList].push({
+    
+        const newTask = {
             name: task.trim(),
             description: description.trim(),
             priority,
-        });
+            completed: false, 
+        };
+    
+        const updatedTasks = { ...tasks };
+    
+        if (!updatedTasks[selectedList]) {
+            updatedTasks[selectedList] = [];
+        }
+    
+        updatedTasks[selectedList] = [newTask, ...updatedTasks[selectedList].filter(t => !t.completed), ...updatedTasks[selectedList].filter(t => t.completed)];
+    
         setTasks(updatedTasks);
-
+    
         setError("");
-        navigate(-1); 
+        navigate(-1);
     };
+    
 
     return (
         <div className="new-task">
