@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import trash from './assets/trash.png';
 import edit from './assets/edit.png';
 import { RouteParams, HomeType, Task } from "./types";
+import '../src/css/elisabeth.css';
 
 const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const { id } = useParams<RouteParams>();
@@ -41,22 +42,22 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
             <h2>{listName}</h2>
 
             <div className="actions">
+                <Link to={`/newtask?list=${listName}`}>
+                    <button className="add-task">Add task</button>
+                </Link>
+                
                 <select
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
                     className="filter-select"
                 >
-                    <option value="all">All Tasks</option>
+                    <option value="all">Filter</option>
                     <option value="completed">Completed</option>
                     <option value="notCompleted">Not Completed</option>
                     <option value="highPriority">High Priority</option>
                     <option value="mediumPriority">Medium Priority</option>
                     <option value="lowPriority">Low Priority</option>
                 </select>
-
-                <Link to={`/newtask?list=${listName}`}>
-                    <button>Add task</button>
-                </Link>
             </div>
 
             <ul>
