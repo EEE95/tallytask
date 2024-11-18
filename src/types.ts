@@ -1,16 +1,10 @@
-export interface Task {
-    name: string;
-    priority: number;
-    completed: boolean;
-}
-
 export interface HomeType {
-    lists: { [key: string]: string };
-    setLists: (lists: { [key: string]: string }) => void;
-    tasks: { [listName: string]: Task[] }; 
-    setTasks: (tasks: { [listName: string]: Task[] }) => void;
+    lists: string[];
+    setLists: (lists: string[]) => void;
+    tasks: string[];
+    setTasks: (tasks: string[]) => void;
 }
 
-export type RouteParams = {
+export type RouteParams {
     id: string;
-};
+  }
