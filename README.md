@@ -1,8 +1,27 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Intro til TallyTask (kort beskrivelse mangler)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+README: Sådan åbner du en Localhost med Typescript og React
+
+Før du går i gang, skal du sørge for, at følgende er installeret på din computer:
+
+Node.js : Download og installer Node.js fra https://nodejs.org.
+
+Installation og opsætning: 
+
+1. Klon projektet (valgfrit), hvis du har fået et Git repository
+
+2. Installer afhængigheder
+    Åben terminalen på den givne mappe / indsæt mappen i terminalen, for at sikre, at du befinder dig i projektets rodmappe. Dobbelttjek ved at skrive "cd tasktally"
+
+    npm install (skal forklares)
+
+    npm run dev (skal forklares)
+
+    ctrl + click på link // command + click på link for at åbne hosten (skal forklares)
+
+    
+
+
