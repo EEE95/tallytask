@@ -43,7 +43,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
 
             <div className="actions">
                 <Link to={`/newtask?list=${listName}`}>
-                    <button className="add-task">Add task</button>
+                    <button className="add-task">Add task +</button>
                 </Link>
                 
                 <select
