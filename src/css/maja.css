@@ -39,4 +39,14 @@
         margin-right: none;
        }
     }
+    .done-button{
+        margin-left: 1em;
+        margin-top: 1em;
+        background-color: #405069;
+        color: #FFFCF5;
+        padding: 0.5em 2em;
+        border-radius: 10px;
+        font-family: 'eigerdals', sans serif;
+        font-size: 1.2em;
+    }
 }

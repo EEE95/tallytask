@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/maja.css';
 import gear from '../assets/gear.png';
 
@@ -9,6 +10,7 @@ interface PersonalizeProps {
 
 const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNickname }) => {
   const [nickname, setNicknameInput] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +30,10 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
 
     const handleResetAvatar = () => {
       setSelectedAvatar(gear); // Set the avatar to the default gear image
+    };
+
+    const handleDone = () => {
+      navigate('/'); // Navigerer tilbage til Home-siden
     };
 
   return (
@@ -58,6 +64,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
         <button className="reset-button" type="submit">Save</button>
         </div>
       </form>
+      <button className="done-button" onClick={handleDone}>Done</button>
     </div>
   );
 };
