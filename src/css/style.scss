@@ -57,11 +57,12 @@ h3, h4{
     .right{
         display: flex;
         justify-content: right;
+        margin-right: 1em;
     }
 
     .img-gear{
         background-color: none;
-        width: 50px;
+        max-height: 60px;
     }
     button{
         border: none;
