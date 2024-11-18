@@ -74,9 +74,10 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
 
                             {/* Opgave navn */}
                             <span className={`task-name ${task.completed ? "completed" : ""}`}>
-                                {task.name} - {task.priority}
+                                {task.name}
                             </span>
-
+                            <div className={`priority-dot ${task.priority}`}></div>
+                            
                             {/* Redigering/sletning */}
                             <div className="task-actions">
                                 <button onClick={() => console.log(`Edit task ${index}`)}>

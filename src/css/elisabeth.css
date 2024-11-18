@@ -27,3 +27,10 @@
         background-color: partial.$secondary-color;
     }
 }
+
+ /* Styling for priority label */
+ .priority-label {
+    font-size: 14px;
+    color: #888;
+    margin-left: 10px;
+}

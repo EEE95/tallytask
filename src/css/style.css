@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Variabler*/
 /*Mixins*/
 * {
@@ -234,14 +235,13 @@ h3, h4 {
   margin: 10px;
   color: #FFFCF5;
   font-family: "Roboto", sans-serif;
-  /* Styling for priority label */
+  /*prioritet visualiseres med en prik*/
 }
 .list-page h2 {
-  margin-bottom: 10px;
+  margin: 10px;
 }
 .list-page .task-item {
   display: flex;
-  align-items: center;
   margin-bottom: 15px;
   padding: 10px;
 }
@@ -259,6 +259,7 @@ h3, h4 {
   font-size: 18px;
   flex-grow: 1;
   border-bottom: solid 1px black;
+  margin-bottom: 5px;
 }
 .list-page .task-item .task-content .task-name.completed {
   text-decoration: line-through;
@@ -278,8 +279,37 @@ h3, h4 {
   width: 20px;
   height: 20px;
 }
-.list-page .priority-label {
-  font-size: 14px;
-  color: #888;
-  margin-left: 10px;
+.list-page .actions {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.list-page .actions .filter-select {
+  font-family: "Roboto", sans-serif;
+  border-radius: 7px;
+  border: solid 1px black;
+  color: #010101;
+  background-color: #FFFCF5;
+}
+.list-page .actions .add-task {
+  font-family: "Roboto", sans-serif;
+  padding: 5px;
+  border-radius: 7px;
+  border: solid 1px black;
+  color: #010101;
+  background-color: #FFFCF5;
+}
+.list-page .priority-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 25%;
+}
+.list-page .priority-dot.high {
+  background-color: #DB3838; /* Rød for høj prioritet */
+}
+.list-page .priority-dot.medium {
+  background-color: #DDDD4C; /* Gul for medium prioritet */
+}
+.list-page .priority-dot.low {
+  background-color: #96E4A7; /* Grøn for lav prioritet */
 }/*# sourceMappingURL=style.css.map */

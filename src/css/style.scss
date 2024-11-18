@@ -253,12 +253,11 @@ h3, h4{
     font-family: partial.$font-text;
 
     h2{
-        margin-bottom: 10px;
+        margin: 10px;
     }
 
         .task-item {
             display: flex; 
-            align-items: center;
             margin-bottom: 15px; 
             padding: 10px;
 
@@ -277,6 +276,7 @@ h3, h4{
                     font-size: 18px;
                     flex-grow: 1;
                     border-bottom: solid 1px black;
+                    margin-bottom: 5px;
         
                     &.completed {
                         text-decoration: line-through;
@@ -303,11 +303,46 @@ h3, h4{
             }
         }
 
-        /* Styling for priority label */
-        .priority-label {
-            font-size: 14px;
-            color: #888;
-            margin-left: 10px;
+    .actions{
+        margin: 10px;
+        display: flex;
+        justify-content: space-between;
+            
+        .filter-select{
+            font-family: partial.$font-text;
+            border-radius: 7px;
+            border: solid 1px black;
+            color: partial.$text-color;
+            background-color: partial.$bg-color;
         }
+        
+        .add-task{
+            font-family: partial.$font-text;
+            padding: 5px;
+            border-radius: 7px;
+            border: solid 1px black;
+            color: partial.$text-color;
+            background-color: partial.$bg-color;
+        }
+    }
+    
+    /*prioritet visualiseres med en prik*/
+    .priority-dot {
+        width: 15px;
+        height: 15px;
+        border-radius: 25%;
+    }
+
+    .priority-dot.high {
+        background-color: #DB3838; /* Rød for høj prioritet */
+    }
+
+    .priority-dot.medium {
+        background-color: #DDDD4C; /* Gul for medium prioritet */
+    }
+
+    .priority-dot.low {
+        background-color: #96E4A7; /* Grøn for lav prioritet */
+    }
 
 }
