@@ -15,10 +15,13 @@
         grid-template-rows: repeat(2, 1fr);
         grid-gap: 1.2em;
         width: 40%;
+        img{
+            cursor: pointer;
+        }
     }
 
     .selected-theme{
-        border: 4px solid #405069;
+        outline: 4px solid #405069;
         border-radius: 15px;
     }
 
@@ -26,14 +29,22 @@
         padding: 1.2em;
         display: grid;
         align-items: center;
+        justify-items: center;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 5em);
         column-gap: 1.2em;
         width: 40%;
         img{
-            height: 70%;
+            height: 80%;
             background-color: transparent;
+            cursor: pointer;
         }
+    }
+
+    .selected-avatar{
+        outline: 2px solid #405069;
+        padding: 0.3em;
+        border-radius: 20px;
     }
 
     .reset-button{
@@ -44,6 +55,7 @@
         padding: 0.5em 1em;
         border-radius: 10px;
         font-family: 'eigerdals', sans serif;
+        cursor: pointer;
     }
 
     .nickname-form{
@@ -64,5 +76,6 @@
         border-radius: 10px;
         font-family: 'eigerdals', sans serif;
         font-size: 1.2em;
+        cursor: pointer;
     }
 }

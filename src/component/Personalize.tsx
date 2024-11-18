@@ -17,6 +17,7 @@ interface PersonalizeProps {
 const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNickname, setTheme }) => {
   const [nickname, setNicknameInput] = useState('');
   const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
+  const [selectedAvatar, setSelectedAvatarState] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,7 +45,8 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
     ];
 
     const handleResetAvatar = () => {
-      setSelectedAvatar(gear); // Set the avatar to the default gear image
+      setSelectedAvatar(gear);
+      setSelectedAvatarState(null);
     };
 
     const handleResetTheme = () => {
@@ -59,6 +61,11 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
     const handleThemeClick = (theme: string) => {
       setTheme(theme);
       setSelectedTheme(theme);
+    };
+
+    const handleAvatarClick = (avatar: string) => {
+      setSelectedAvatar(avatar);
+      setSelectedAvatarState(avatar);
     };
 
   return (
@@ -77,6 +84,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
         ))}
       </div>
       <button className="reset-button" onClick={handleResetTheme}>Reset Theme</button>
+
       <h3>Choose profile avatar</h3>
       <div className="avatar-grid">
         {avatars.map((avatar, index) => (
@@ -84,11 +92,13 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
             key={index} 
             src={avatar} 
             alt={`Avatar ${index}`} 
-            onClick={() => setSelectedAvatar(avatar)} //kalder på min avatar
+            onClick={() => handleAvatarClick(avatar)}
+            className={selectedAvatar === avatar ? 'selected-avatar' : ''}
           />
         ))}
       </div>
       <button className="reset-button" onClick={handleResetAvatar}>Reset Avatar</button>
+      
       <form className="nickname-form" onSubmit={handleSubmit}>
         <label htmlFor="nickname"><h3>Enter your nickname:</h3></label>
         <div>
