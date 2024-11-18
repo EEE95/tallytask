@@ -14,6 +14,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
     e.preventDefault();
     // Gem det indtastede kaldenavn i App-tilstanden (hvis du bruger state) eller localStorage
     setNickname(nickname);
+    setNicknameInput(''); // Fjerner teksten fra inputfeltet
   };
 
     const avatars = [
@@ -44,16 +45,18 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
         ))}
       </div>
       <button className="reset-button" onClick={handleResetAvatar}>Reset Avatar</button>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="nickname">Enter your nickname:</label>
+      <form className="nickname-form" onSubmit={handleSubmit}>
+        <label htmlFor="nickname"><h3>Enter your nickname:</h3></label>
+        <div>
         <input 
           type="text" 
           id="nickname" 
           value={nickname} 
           onChange={(e) => setNicknameInput(e.target.value)} 
-          placeholder="TallyBuddy"
+          placeholder="Write nickname here"
         />
-        <button type="submit">Save</button>
+        <button className="reset-button" type="submit">Save</button>
+        </div>
       </form>
     </div>
   );

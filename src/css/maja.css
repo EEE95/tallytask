@@ -23,5 +23,20 @@
     .reset-button{
         margin-left: 1em;
         margin-bottom: 1em;
+        background-color: #405069;
+        color: #FFFCF5;
+        padding: 0.5em 1em;
+        border-radius: 10px;
+        font-family: 'eigerdals', sans serif;
+    }
+
+    .nickname-form{
+       input{
+        margin: 1em 0 1em 1em;
+        padding: 1em;
+        border-radius: 10px;
+        min-width: 30%;
+        margin-right: none;
+       }
     }
 }
