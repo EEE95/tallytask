@@ -9,7 +9,7 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
     const handleCreateList = () => {
         if (newListName.trim()) {
             // Opretter en ny liste og tilføjer den til 'lists'
-            const updatedLists = [...lists, newListName.trim()];
+            const updatedLists = [...lists, newListName.trim()].sort();
             setLists(updatedLists);
             
             // Opretter en tom task array for den nye liste i 'tasks'
@@ -22,13 +22,17 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
     };
 
     const handleDeleteList = (index:number) => {
-        const updatedLists = lists.filter((_, i) => i !== index);
+        const updatedLists = lists.filter((_, i) => i !== index).sort();
         setLists(updatedLists);
 
         // Hvis listen slettes, skal den også fjernes fra tasks
         const updatedTasks = { ...tasks };
         delete updatedTasks[lists[index]]; // Fjern tasks for den slettede liste
         setTasks(updatedTasks);
+    };
+
+    const countCompletedTasks = (listName: string) => {
+        return tasks[listName]?.filter((task: any) => task.completed).length || 0;
     };
 
     return (
@@ -48,7 +52,7 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
                 {lists.map((list, index) => (
                     <li key={index} className="list-item">
                         <Link to={`/list/${index}`} className="list-link">
-                            {list}
+                            {list} ({countCompletedTasks(list)}/{tasks[list]?.length || 0})
                         </Link>
                         <button
                             className="delete-button"
