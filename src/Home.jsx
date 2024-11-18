@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import trash from "./assets/trash.png"; // Sørg for korrekt import
+import trash from "./assets/trash.png"; 
 
 function Home({ lists, setLists, tasks, setTasks }) {
     const [newListName, setNewListName] = useState("");

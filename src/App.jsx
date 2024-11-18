@@ -11,7 +11,7 @@ function App() {
     const savedNickname = localStorage.getItem('nickname') || 'Tallybuddy';
     const [nickname, setNickname] = useState(savedNickname);
     const [lists, setLists] = useState([]); 
-    const [tasks, setTasks] = useState({}); // Initialize tasks as an empty object
+    const [tasks, setTasks] = useState({});
 
     useEffect(() => {
         localStorage.setItem('nickname', nickname);
