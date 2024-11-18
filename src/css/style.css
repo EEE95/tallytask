@@ -318,4 +318,10 @@ h3, h4 {
 }
 .list-page .priority-dot.low {
   background-color: #96E4A7; /* Grøn for lav prioritet */
+}
+
+.badge-display img {
+  max-width: 100%;
+  width: 150px;
+  margin: 20px;
 }/*# sourceMappingURL=style.css.map */

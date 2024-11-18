@@ -357,7 +357,11 @@ h3, h4{
 
 }
 
-.badges{
-    height: 200px;
-    color: #DB3838;
+.badge-display{
+    
+    img{
+        max-width: 100%;
+        width: 150px;
+        margin: 20px;
+    }
 }
