@@ -10,9 +10,9 @@ function Header({ nickname }) {
     const quotes = [
         "'The secret of getting ahead is getting started' - <em>Mark Twain</em>",
         "'It always seems impossible until it´s done' - <em>Nelson Mandela</em>",
-        "You got this!",
+        "'<em>You got this!</em> '",
         "'Believe you can and you´re halfway there' - <em>Theodore Roosevelt</em>",
-        "Trust the process",
+        "'<em>Trust the process</em>'",
         "'Plans are nothing - planning is everything' - <em>Dwight D. Eisenhower</em>",
         "'If the plan doesn´t work, change the plan, not the goal' - <em>Daniel Hurst</em>",
         "'You can do anything you set your mind to' - <em>Ben Franklin</em>",
