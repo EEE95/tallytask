@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import '../css/maja.css';
 
-function Personalize({ setNickname }) {
+const Personalize = ({ setNickname }) => {
   const [nickname, setNicknameInput] = useState('');
 
   const handleSubmit = (e) => {
@@ -10,8 +11,9 @@ function Personalize({ setNickname }) {
   };
 
   return (
-    <div>
-      <h2>Personalize Your Taskmanager</h2>
+    <div className="p-styling">
+      <h1>Personalize Your Taskmanager</h1>
+      <h3>Choose profile avatar</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="nickname">Enter your nickname:</label>
         <input 
