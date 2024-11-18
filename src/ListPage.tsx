@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import trash from './assets/trash.png';
 import edit from './assets/edit.png';
-import { RouteParams, HomeType } from "./types";
+import { RouteParams, HomeType, Task } from "./types";
 
 
 
@@ -11,10 +11,15 @@ function ListPage({ lists, tasks, setTasks }:HomeType) {
     const listName = id ? lists[id] : "defaultListName";
     const listTasks = tasks[listName] || [];
 
-const handleCompleteTask = (index) => {
+const handleCompleteTask = (index: number) => {
     const updatedTasks = [...listTasks];
     updatedTasks[index].completed = !updatedTasks[index].completed;
     setTasks((prev) => ({ ...prev, [listName]: updatedTasks }));
+};
+
+const handleDeleteTask = (index: number) => {
+        const updatedTasks = listTasks.filter((_, taskIndex) => taskIndex !== index);
+        setTasks((prev) => ({ ...prev, [listName]: updatedTasks }));
 };
 
     return (
