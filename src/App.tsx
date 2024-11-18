@@ -6,6 +6,7 @@ import Home from './Home';
 import ListPage from './ListPage';
 import NewTask from './component/NewTask';
 import Personalize from './component/Personalize';
+import Badges from './component/Badges';
 
 function App() {
     const savedNickname = localStorage.getItem('nickname') || 'Tallybuddy';
@@ -53,6 +54,10 @@ function App() {
                   <Route 
                       path="/personalize" 
                       element={<Personalize setNickname={setNickname} setSelectedAvatar={setSelectedAvatar} setTheme={setTheme} />} 
+                  />
+                  <Route 
+                      path="/badges" 
+                      element={<Badges />} 
                   />
               </Routes>
               <Footer theme={theme} />
