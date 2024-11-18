@@ -3,7 +3,7 @@
 Intro til TallyTask (kort beskrivelse mangler)
 
 
-README: Sådan åbner du en Localhost med Typescript og React
+#README: Sådan åbner du en Localhost med Typescript og React
 
 Før du går i gang, skal du sørge for, at følgende er installeret på din computer:
 
@@ -11,7 +11,7 @@ Node.js : Download og installer Node.js fra https://nodejs.org.
 
 Installation og opsætning: 
 
-1. Klon projektet (valgfrit), hvis du har fået et Git repository
+1. Klon projektet (valgfrit), hvis du har fået et Git repository, eller download det, så du har det på din computer
 
 2. Installer afhængigheder
     Åben terminalen på den givne mappe / indsæt mappen i terminalen, for at sikre, at du befinder dig i projektets rodmappe. Dobbelttjek ved at skrive "cd tasktally"
