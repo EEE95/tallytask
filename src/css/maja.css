@@ -8,6 +8,11 @@
         padding-top: 0.5em;
     }
 
+    hr{
+        width: 80%;
+        margin-bottom: 1.5em;
+    }
+
     .theme-container{
         margin: 1em;
         display: grid;

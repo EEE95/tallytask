@@ -84,6 +84,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
         ))}
       </div>
       <button className="reset-button" onClick={handleResetTheme}>Reset Theme</button>
+      <hr />
 
       <h3>Choose profile avatar</h3>
       <div className="avatar-grid">
@@ -98,6 +99,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
         ))}
       </div>
       <button className="reset-button" onClick={handleResetAvatar}>Reset Avatar</button>
+      <hr />
       
       <form className="nickname-form" onSubmit={handleSubmit}>
         <label htmlFor="nickname"><h3>Enter your nickname:</h3></label>
