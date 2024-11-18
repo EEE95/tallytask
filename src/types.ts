@@ -5,6 +5,6 @@ export interface HomeType {
     setTasks: (tasks: string[]) => void;
 }
 
-export type RouteParams {
+export type RouteParams = {
     id: string;
   }
