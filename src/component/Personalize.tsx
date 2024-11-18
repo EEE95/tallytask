@@ -16,6 +16,7 @@ interface PersonalizeProps {
 
 const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNickname, setTheme }) => {
   const [nickname, setNicknameInput] = useState('');
+  const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -47,11 +48,17 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
     };
 
     const handleResetTheme = () => {
-      setTheme(null); // Reset the theme to default
+      setTheme(null);
+      setSelectedTheme(null);
     };
 
     const handleDone = () => {
       navigate('/'); // Navigerer tilbage til Home-siden
+    };
+
+    const handleThemeClick = (theme: string) => {
+      setTheme(theme);
+      setSelectedTheme(theme);
     };
 
   return (
@@ -64,7 +71,8 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
             key={index} 
             src={theme.src} 
             alt={theme.alt} 
-            onClick={() => setTheme(theme.theme)} 
+            onClick={() => handleThemeClick(theme.theme)} 
+            className={selectedTheme === theme.theme ? 'selected-theme' : ''}
           />
         ))}
       </div>
