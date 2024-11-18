@@ -41,10 +41,6 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
             <h2>{listName}</h2>
 
             <div className="actions">
-                <Link to={`/newtask?list=${listName}`}>
-                    <button>Add task</button>
-                </Link>
-
                 <select
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
@@ -57,6 +53,10 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                     <option value="mediumPriority">Medium Priority</option>
                     <option value="lowPriority">Low Priority</option>
                 </select>
+
+                <Link to={`/newtask?list=${listName}`}>
+                    <button>Add task</button>
+                </Link>
             </div>
 
             <ul>
