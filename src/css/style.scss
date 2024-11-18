@@ -272,7 +272,7 @@ h3, h4{
         
                     &.completed {
                         text-decoration: line-through;
-                        color: grey;
+                        opacity: 0.5;
                     }
                 }
 

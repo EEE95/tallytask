@@ -1,16 +1,18 @@
+// types.ts
 export interface Task {
     name: string;
-    priority: number;
+    description?: string;
     completed: boolean;
+    priority: "high" | "medium" | "low";
 }
 
 export interface HomeType {
-    lists: { [key: string]: string };
-    setLists: (lists: { [key: string]: string }) => void;
-    tasks: { [listName: string]: Task[] }; 
-    setTasks: (tasks: { [listName: string]: Task[] }) => void;
+    lists: string[];
+    setLists: (lists: string[]) => void;
+    tasks: { [key: string]: Task[] }; 
+    setTasks: (tasks: { [key: string]: Task[] }) => void;
 }
 
 export type RouteParams = {
     id: string;
-};
+}
