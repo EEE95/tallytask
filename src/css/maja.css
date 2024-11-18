@@ -12,12 +12,16 @@
         display: grid;
         align-items: center;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 7em);
+        grid-template-rows: repeat(2, 5em);
         column-gap: 1.2em;
         width: 40%;
         img{
-            height: 50%;
+            height: 70%;
             
         }
+    }
+    .reset-button{
+        margin-left: 1em;
+        margin-bottom: 1em;
     }
 }

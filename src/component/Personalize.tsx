@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/maja.css';
+import gear from '../assets/gear.png';
 
 interface PersonalizeProps {
   setSelectedAvatar: (avatar: string) => void;
@@ -24,6 +25,10 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
       'src/assets/hund.png'
     ];
 
+    const handleResetAvatar = () => {
+      setSelectedAvatar(gear); // Set the avatar to the default gear image
+    };
+
   return (
     <div className="p-styling">
       <h1>Personalize Your Taskmanager</h1>
@@ -38,6 +43,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
           />
         ))}
       </div>
+      <button className="reset-button" onClick={handleResetAvatar}>Reset Avatar</button>
       <form onSubmit={handleSubmit}>
         <label htmlFor="nickname">Enter your nickname:</label>
         <input 
