@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import '../css/maja.css';
 import gear from '../assets/gear.png';
 import winterTheme from '../assets/vintertema.png';
+import springTheme from '../assets/springtema.png';
+import summerTheme from '../assets/summertema.png';
+import fallTheme from '../assets/falltema.png';
+import christmasTheme from '../assets/christmastema.png';
 
 interface PersonalizeProps {
   setSelectedAvatar: (avatar: string) => void;
@@ -30,6 +34,14 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
       'src/assets/hund.png'
     ];
 
+    const themes = [
+      { src: 'src/assets/winterikon.png', alt: 'Winter theme', theme: winterTheme },
+      { src: 'src/assets/springikon.png', alt: 'Spring theme', theme: springTheme },
+      { src: 'src/assets/summerikon.png', alt: 'Summer theme', theme: summerTheme },
+      { src: 'src/assets/fallikon.png', alt: 'Fall theme', theme: fallTheme },
+      { src: 'src/assets/christmasikon.png', alt: 'Christmas theme', theme: christmasTheme }
+    ];
+
     const handleResetAvatar = () => {
       setSelectedAvatar(gear); // Set the avatar to the default gear image
     };
@@ -47,11 +59,14 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
       <h1>Personalize Your Taskmanager</h1>
       <h3>Choose your theme</h3>
       <div className="theme-container">
-        <img 
-          src="src/assets/winterikon.png" 
-          alt="Winter theme" 
-          onClick={() => setTheme(winterTheme)} // Set the theme to winter theme
-        />
+        {themes.map((theme, index) => (
+          <img 
+            key={index} 
+            src={theme.src} 
+            alt={theme.alt} 
+            onClick={() => setTheme(theme.theme)} 
+          />
+        ))}
       </div>
       <button className="reset-button" onClick={handleResetTheme}>Reset Theme</button>
       <h3>Choose profile avatar</h3>
