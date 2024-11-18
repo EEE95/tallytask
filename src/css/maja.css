@@ -7,6 +7,11 @@
         padding-left: 0.8em;
         padding-top: 0.5em;
     }
+
+    .theme-container{
+        margin: 1em;
+    }
+
     .avatar-grid{
         padding: 1.2em;
         display: grid;
@@ -17,7 +22,7 @@
         width: 40%;
         img{
             height: 70%;
-            
+            background-color: transparent;
         }
     }
     .reset-button{

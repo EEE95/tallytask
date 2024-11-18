@@ -13,6 +13,7 @@ function App() {
     const [lists, setLists] = useState([]); 
     const [tasks, setTasks] = useState({});
     const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
+    const [theme, setTheme] = useState<string | null>(null);
 
     useEffect(() => {
         localStorage.setItem('nickname', nickname);
@@ -35,7 +36,7 @@ function App() {
     return (
       <Router>
           <div className="App">
-              <Header nickname={nickname} selectedAvatar={selectedAvatar}  />
+              <Header nickname={nickname} selectedAvatar={selectedAvatar} theme={theme} />
               <Routes>
                   <Route 
                     path="/" 
@@ -51,10 +52,10 @@ function App() {
                   />
                   <Route 
                       path="/personalize" 
-                      element={<Personalize setNickname={setNickname} setSelectedAvatar={setSelectedAvatar} />} 
+                      element={<Personalize setNickname={setNickname} setSelectedAvatar={setSelectedAvatar} setTheme={setTheme} />} 
                   />
               </Routes>
-              <Footer />
+              <Footer theme={theme} />
           </div>
       </Router>
   );

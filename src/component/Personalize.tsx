@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/maja.css';
 import gear from '../assets/gear.png';
+import winterTheme from '../assets/vintertema.png';
 
 interface PersonalizeProps {
   setSelectedAvatar: (avatar: string) => void;
   setNickname: (nickname: string) => void;
+  setTheme: (theme: string) => void;
 }
 
-const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNickname }) => {
+const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNickname, setTheme }) => {
   const [nickname, setNicknameInput] = useState('');
   const navigate = useNavigate();
 
@@ -39,6 +41,14 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
   return (
     <div className="p-styling">
       <h1>Personalize Your Taskmanager</h1>
+      <h3>Choose your theme</h3>
+      <div className="theme-container">
+        <img 
+          src="src/assets/winterikon.png" 
+          alt="Winter theme" 
+          onClick={() => setTheme(winterTheme)} // Set the theme to winter theme
+        />
+      </div>
       <h3>Choose profile avatar</h3>
       <div className="avatar-grid">
         {avatars.map((avatar, index) => (

@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom';
 interface HeaderProps {
     nickname: string;
     selectedAvatar: string | null;
+    theme: string | null;
   }
 
-const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar }) => {
+const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
 
     const quotes = [
         "'The secret of getting ahead is getting started' - <em>Mark Twain</em>",
@@ -40,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar }) => {
 
 
     return (
-        <div className='header'>
+        <div className='header' style={{ backgroundImage: theme ? `url(${theme})` : 'none' }}>
             <div className='left'>
                 <img className='logo' src={logo} alt='TallyTask logo' />
                 <TodaysDay />
