@@ -2,11 +2,14 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import trash from './assets/trash.png';
 import edit from './assets/edit.png';
+import { RouteParams, HomeType } from "./types";
 
-function ListPage({ lists, tasks, setTasks }) {
-    const { id } = useParams();
-    const listName = lists[id];
-    const listTasks = tasks[listName] || []; 
+
+
+function ListPage({ lists, tasks, setTasks }:HomeType) {
+    const { id } = useParams<RouteParams>();
+    const listName = id ? lists[id] : "defaultListName";
+    const listTasks = tasks[listName] || [];
 
 const handleCompleteTask = (index) => {
     const updatedTasks = [...listTasks];

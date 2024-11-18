@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import Home from './Home';
-import ListPage from './Listpage';
-import NewTask from './component/Newtask';
+import ListPage from './ListPage';
+import NewTask from './component/NewTask';
 import Personalize from './component/Personalize';
 
 function App() {
@@ -25,7 +25,6 @@ function App() {
                   <Route 
                     path="/" 
                     element={<Home lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />} 
-                    exact 
                   />
                   <Route 
                     path="/list/:id" 

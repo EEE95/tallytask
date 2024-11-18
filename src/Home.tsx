@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import trash from "./assets/trash.png"; 
+import { HomeType } from "./types";
 
-function Home({ lists, setLists, tasks, setTasks }) {
+function Home({ lists, setLists, tasks, setTasks }: HomeType) {
     const [newListName, setNewListName] = useState("");
 
     const handleCreateList = () => {
@@ -20,7 +21,7 @@ function Home({ lists, setLists, tasks, setTasks }) {
         }
     };
 
-    const handleDeleteList = (index) => {
+    const handleDeleteList = (index:number) => {
         const updatedLists = lists.filter((_, i) => i !== index);
         setLists(updatedLists);
 

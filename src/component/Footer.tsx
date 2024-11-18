@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import home from '../assets/home.png';
 import plus from '../assets/plus.png';
-import gear from '../assets/gear.png';
+import gear from '../assets/gear.png'; // Ensure this file exists at the specified path
+
+
 
 function Footer() {
     return (
