@@ -44,9 +44,17 @@ h3, h4 {
 .header h1 {
   margin-bottom: 20px;
 }
+.header .right {
+  display: flex;
+  justify-content: right;
+}
 .header .img-gear {
   background-color: none;
-  width: 40px;
+  width: 50px;
+}
+.header button {
+  border: none;
+  background-color: #AEBCD2;
 }
 
 /* footer */

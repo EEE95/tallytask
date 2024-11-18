@@ -1,19 +1,43 @@
 import React, { useState } from 'react';
 import '../css/maja.css';
 
-const Personalize = ({ setNickname }) => {
+interface PersonalizeProps {
+  setSelectedAvatar: (avatar: string) => void;
+  setNickname: (nickname: string) => void;
+}
+
+const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNickname }) => {
   const [nickname, setNicknameInput] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Gem det indtastede kaldenavn i App-tilstanden (hvis du bruger state) eller localStorage
     setNickname(nickname);
   };
 
+    const avatars = [
+      'src/assets/kat.png',
+      'src/assets/raev.png',
+      'src/assets/mus.png',
+      'src/assets/pingvin.png',
+      'src/assets/faar.png',
+      'src/assets/hund.png'
+    ];
+
   return (
     <div className="p-styling">
       <h1>Personalize Your Taskmanager</h1>
       <h3>Choose profile avatar</h3>
+      <div className="avatar-grid">
+        {avatars.map((avatar, index) => (
+          <img 
+            key={index} 
+            src={avatar} 
+            alt={`Avatar ${index}`} 
+            onClick={() => setSelectedAvatar(avatar)} //kalder på min avatar
+          />
+        ))}
+      </div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="nickname">Enter your nickname:</label>
         <input 
@@ -27,6 +51,6 @@ const Personalize = ({ setNickname }) => {
       </form>
     </div>
   );
-}
+};
 
 export default Personalize;

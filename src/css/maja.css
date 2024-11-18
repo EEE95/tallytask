@@ -5,5 +5,19 @@
     }
     h3{
         padding-left: 0.8em;
+        padding-top: 0.5em;
+    }
+    .avatar-grid{
+        padding: 1.2em;
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 7em);
+        column-gap: 1.2em;
+        width: 40%;
+        img{
+            height: 50%;
+            
+        }
     }
 }

@@ -5,7 +5,12 @@ import gear from '../assets/gear.png';
 import TodaysDay from './Date';
 import { Link } from 'react-router-dom';
 
-function Header({ nickname }) {
+interface HeaderProps {
+    nickname: string;
+    selectedAvatar: string | null;
+  }
+
+const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar }) => {
 
     const quotes = [
         "'The secret of getting ahead is getting started' - <em>Mark Twain</em>",
@@ -33,6 +38,7 @@ function Header({ nickname }) {
         return () => clearInterval(interval);
     }, []);
 
+
     return (
         <div className='header'>
             <div className='left'>
@@ -45,7 +51,11 @@ function Header({ nickname }) {
                 {/* Link to Personalize page */}
                 <Link to="/personalize">
                     <button className="personalize-button">
-                        <img src={gear} className='img-gear' alt="Personalize your task manager" />
+                        <img 
+                            src={selectedAvatar || gear} //fallback til default, hvis der ikke er valgt en avatar
+                            className='img-gear' 
+                            alt="Personalize your task manager" 
+                        />
                     </button>
                 </Link>
             </div>
@@ -55,6 +65,6 @@ function Header({ nickname }) {
             </blockquote>
         </div>
     );
-}
+};
 
 export default Header;

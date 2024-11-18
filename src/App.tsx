@@ -12,15 +12,30 @@ function App() {
     const [nickname, setNickname] = useState(savedNickname);
     const [lists, setLists] = useState([]); 
     const [tasks, setTasks] = useState({});
+    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
 
     useEffect(() => {
         localStorage.setItem('nickname', nickname);
     }, [nickname]);
 
+    useEffect(() => {
+        const savedAvatar = localStorage.getItem('selectedAvatar');
+        if (savedAvatar) {
+            setSelectedAvatar(savedAvatar);
+        }
+    }, []);
+    
+    useEffect(() => {
+        if (selectedAvatar) {
+            localStorage.setItem('selectedAvatar', selectedAvatar);
+        }
+    }, [selectedAvatar]);
+    
+
     return (
       <Router>
           <div className="App">
-              <Header nickname={nickname} />
+              <Header nickname={nickname} selectedAvatar={selectedAvatar}  />
               <Routes>
                   <Route 
                     path="/" 
@@ -36,7 +51,7 @@ function App() {
                   />
                   <Route 
                       path="/personalize" 
-                      element={<Personalize setNickname={setNickname} />} 
+                      element={<Personalize setNickname={setNickname} setSelectedAvatar={setSelectedAvatar} />} 
                   />
               </Routes>
               <Footer />
