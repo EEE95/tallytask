@@ -7,7 +7,7 @@ import winterTheme from '../assets/vintertema.png';
 interface PersonalizeProps {
   setSelectedAvatar: (avatar: string) => void;
   setNickname: (nickname: string) => void;
-  setTheme: (theme: string) => void;
+  setTheme: (theme: string | null) => void;
 }
 
 const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNickname, setTheme }) => {
@@ -34,6 +34,10 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
       setSelectedAvatar(gear); // Set the avatar to the default gear image
     };
 
+    const handleResetTheme = () => {
+      setTheme(null); // Reset the theme to default
+    };
+
     const handleDone = () => {
       navigate('/'); // Navigerer tilbage til Home-siden
     };
@@ -49,6 +53,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
           onClick={() => setTheme(winterTheme)} // Set the theme to winter theme
         />
       </div>
+      <button className="reset-button" onClick={handleResetTheme}>Reset Theme</button>
       <h3>Choose profile avatar</h3>
       <div className="avatar-grid">
         {avatars.map((avatar, index) => (
