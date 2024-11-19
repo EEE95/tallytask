@@ -8,7 +8,7 @@ import NewTask from './component/NewTask';
 import Personalize from './component/Personalize';
 import Badges from './component/Badges';
 
-function App() {
+const App = () => {
     const [nickname, setNickname] = useState<string>(
         localStorage.getItem('nickname') || 'Tallybuddy'
     );
@@ -26,9 +26,7 @@ function App() {
     const [lists, setLists] = useState<string[]>(initializeLists);
     const [tasks, setTasks] = useState<{ [key: string]: any[] }>(initializeTasks);
 
-    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(
-        localStorage.getItem('selectedAvatar')
-    );
+    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
 
     const [theme, setTheme] = useState<string | null>(
         localStorage.getItem('theme')
@@ -48,6 +46,11 @@ function App() {
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }, [tasks]);
+
+    useEffect(() => {
+        const savedAvatar = localStorage.getItem('selectedAvatar');
+        setSelectedAvatar(savedAvatar);
+    }, []);
 
     useEffect(() => {
         if (selectedAvatar) {
