@@ -139,14 +139,12 @@ h3, h4 {
   color: #010101;
   opacity: 0.5;
   font-family: "Roboto", sans-serif;
-  padding: 5px;
 }
 .home-page .create-list input::placeholder {
   font-weight: bold;
   color: #010101;
   opacity: 0.5;
   font-family: "Roboto", sans-serif;
-  padding: 5px;
 }
 .home-page .create-list button {
   padding: 0 5px 0 5px;
