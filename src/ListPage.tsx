@@ -64,6 +64,9 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                 {filteredTasks.map((task, index) => (
                     <li key={index} className={`task-item priority-${task.priority}`}>
                         <div className="task-content">
+                            
+                        <div className={`priority-dot ${task.priority}`}></div>
+                        
                             {/* Checkbox til 'completed' */}
                             <input
                                 type="checkbox"
@@ -76,7 +79,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                             <span className={`task-name ${task.completed ? "completed" : ""}`}>
                                 {task.name}
                             </span>
-                            <div className={`priority-dot ${task.priority}`}></div>
+                            
                             
                             {/* Redigering/sletning */}
                             <div className="task-actions">

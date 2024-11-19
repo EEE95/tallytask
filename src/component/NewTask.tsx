@@ -91,7 +91,7 @@ function NewTask({ lists, tasks, setTasks }) {
                     value={priority}
                     onChange={(e) => setPriority(e.target.value)}
                 >
-                    <option value="">-- Select priority --</option>
+                    <option value="">-- Select priority (optional) --</option>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
