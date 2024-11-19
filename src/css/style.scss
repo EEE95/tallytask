@@ -440,3 +440,92 @@ h3, h4{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 }
+
+/* Personalize page */
+.p-styling{
+    
+    h1{
+        padding: 0.5em;
+    }
+    h3{
+        padding-left: 0.8em;
+        padding-top: 0.5em;
+    }
+
+    hr{
+        width: 80%;
+        margin-bottom: 1.5em;
+    }
+
+    .theme-container{
+        margin: 1em;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 1.2em;
+        justify-items: flex-start;
+        width: 40%;
+        img{
+            cursor: pointer;
+        }
+        .selected-theme{
+            outline: 4px solid partial.$accent-color;
+            border-radius: 15px;
+        }
+    }
+
+    
+
+    .avatar-grid{
+        padding: 1.2em;
+        display: grid;
+        align-items: center;
+        justify-items: flex-start;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 5em);
+        column-gap: 1.2em;
+        width: 40%;
+        img{
+            height: 80%;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .selected-avatar{
+            outline: 2px solid partial.$accent-color;
+            padding: 0.3em;
+            border-radius: 20px;
+        }
+    }
+
+    .reset-button{
+        margin-left: 1em;
+        margin-bottom: 3em;
+        background-color: partial.$accent-color;
+        color: partial.$bg-color;
+        padding: 0.5em 1em;
+        border-radius: 10px;
+        font-family: 'eigerdals', sans serif;
+        cursor: pointer;
+    }
+
+    .nickname-form{
+       input{
+        margin: 1em 0 1em 1em;
+        padding: 1em;
+        border-radius: 10px;
+        min-width: 30%;
+        margin-right: none;
+       }
+    }
+    .done-button{
+        margin-left: 1em;
+        margin-top: 1em;
+        background-color: partial.$accent-color;
+        color: partial.$bg-color;
+        padding: 0.5em 2em;
+        border-radius: 10px;
+        font-family: 'eigerdals', sans serif;
+        font-size: 1.2em;
+        cursor: pointer;
+    }
+}

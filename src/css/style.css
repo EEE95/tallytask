@@ -389,4 +389,82 @@ h3, h4 {
 .desktop-layout {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+}
+
+/* Personalize page */
+.p-styling h1 {
+  padding: 0.5em;
+}
+.p-styling h3 {
+  padding-left: 0.8em;
+  padding-top: 0.5em;
+}
+.p-styling hr {
+  width: 80%;
+  margin-bottom: 1.5em;
+}
+.p-styling .theme-container {
+  margin: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1.2em;
+  justify-items: flex-start;
+  width: 40%;
+}
+.p-styling .theme-container img {
+  cursor: pointer;
+}
+.p-styling .theme-container .selected-theme {
+  outline: 4px solid #405069;
+  border-radius: 15px;
+}
+.p-styling .avatar-grid {
+  padding: 1.2em;
+  display: grid;
+  align-items: center;
+  justify-items: flex-start;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 5em);
+  -moz-column-gap: 1.2em;
+       column-gap: 1.2em;
+  width: 40%;
+}
+.p-styling .avatar-grid img {
+  height: 80%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.p-styling .avatar-grid .selected-avatar {
+  outline: 2px solid #405069;
+  padding: 0.3em;
+  border-radius: 20px;
+}
+.p-styling .reset-button {
+  margin-left: 1em;
+  margin-bottom: 3em;
+  background-color: #405069;
+  color: #FFFCF5;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  font-family: "eigerdals", sans serif;
+  cursor: pointer;
+}
+.p-styling .nickname-form input {
+  margin: 1em 0 1em 1em;
+  padding: 1em;
+  border-radius: 10px;
+  min-width: 30%;
+  margin-right: none;
+}
+.p-styling .done-button {
+  margin-left: 1em;
+  margin-top: 1em;
+  background-color: #405069;
+  color: #FFFCF5;
+  padding: 0.5em 2em;
+  border-radius: 10px;
+  font-family: "eigerdals", sans serif;
+  font-size: 1.2em;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
