@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import trash from './assets/trash.png';
 import edit from './assets/edit.png';
-import { RouteParams, HomeType, Task } from "./types";
+import { RouteParams, HomeType } from "./types";
 
 const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const { id } = useParams<RouteParams>();
+    const navigate = useNavigate();
+
     const listName = id ? lists[id] : "defaultListName";
     const listTasks = tasks[listName] || [];
 
-    const [filter, setFilter] = useState<string>("all"); 
+    const [filter, setFilter] = useState<string>("all");
     const [expandedTaskIndex, setExpandedTaskIndex] = useState<number | null>(null);
 
     const handleCompleteTask = (index: number) => {
@@ -24,6 +26,13 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const handleDeleteTask = (index: number) => {
         const updatedTasks = listTasks.filter((_, taskIndex) => taskIndex !== index);
         setTasks((prev) => ({ ...prev, [listName]: updatedTasks }));
+    };
+
+    const handleEditTask = (index: number) => {
+        const taskToEdit = listTasks[index];
+        navigate(`/newtask?list=${listName}&edit=true&index=${index}`, {
+            state: { task: taskToEdit },
+        });
     };
 
     const filteredTasks = listTasks.filter((task) => {
@@ -44,7 +53,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                 <Link to={`/newtask?list=${listName}`}>
                     <button className="add-task">Add task +</button>
                 </Link>
-                
+
                 <select
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
@@ -64,8 +73,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                     <li key={index} className={`task-item priority-${task.priority}`}>
                         <div className="task-content">
                             <div className={`priority-dot ${task.priority}`}></div>
-                        
-                            {/* Checkbox til 'completed' */}
+
                             <input
                                 type="checkbox"
                                 checked={task.completed}
@@ -73,12 +81,10 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                                 className="task-checkbox"
                             />
 
-                            {/* Opgave navn */}
                             <span className={`task-name ${task.completed ? "completed" : ""}`}>
                                 {task.name}
                             </span>
 
-                             {/* "See More"-knap */}
                             {task.description && (
                                 <div className="task-description">
                                     <button
@@ -96,11 +102,9 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                                     )}
                                 </div>
                             )}
-                            
-                            
-                            {/* Redigering/sletning */}
+
                             <div className="task-actions">
-                                <button onClick={() => console.log(`Edit task ${index}`)}>
+                                <button onClick={() => handleEditTask(index)}>
                                     <img src={edit} alt="edit task" />
                                 </button>
                                 <button onClick={() => handleDeleteTask(index)}>
@@ -108,12 +112,11 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                                 </button>
                             </div>
                         </div>
-                        
                     </li>
                 ))}
             </ul>
         </div>
     );
-}
+};
 
 export default ListPage;

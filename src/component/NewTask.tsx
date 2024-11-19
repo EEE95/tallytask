@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { HomeType } from '../types';
+import { HomeType } from "./types";
 
-function NewTask({ lists, tasks, setTasks }: HomeType) {
-    const [task, setTask] = useState("");
-    const [description, setDescription] = useState(""); 
-    const [priority, setPriority] = useState(""); 
-    const [selectedList, setSelectedList] = useState("");
-    const [error, setError] = useState(""); 
+const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
     const listFromQuery = new URLSearchParams(location.search).get("list");
+    const editMode = new URLSearchParams(location.search).get("edit") === "true";
+    const taskIndex = parseInt(new URLSearchParams(location.search).get("index") || "-1", 10);
+
+    const [task, setTask] = useState("");
+    const [description, setDescription] = useState("");
+    const [priority, setPriority] = useState("");
+    const [selectedList, setSelectedList] = useState(listFromQuery || "");
+    const [error, setError] = useState("");
 
     React.useEffect(() => {
-        if (listFromQuery) {
-            setSelectedList(listFromQuery);
+        if (editMode && location.state?.task) {
+            const { name, description, priority } = location.state.task;
+            setTask(name);
+            setDescription(description || "");
+            setPriority(priority || "");
         }
-    }, [listFromQuery]);
+    }, [editMode, location.state]);
 
-    const handleCreateTask = () => {
+    const handleSaveTask = () => {
         if (!selectedList) {
             setError("Please select a list.");
             return;
@@ -28,32 +34,36 @@ function NewTask({ lists, tasks, setTasks }: HomeType) {
             setError("Please enter a task name.");
             return;
         }
-    
-        const newTask = {
+
+        const updatedTask = {
             name: task.trim(),
             description: description.trim(),
             priority,
-            completed: false, 
+            completed: editMode ? location.state.task.completed : false,
         };
-    
+
         const updatedTasks = { ...tasks };
-    
         if (!updatedTasks[selectedList]) {
             updatedTasks[selectedList] = [];
         }
-    
-        updatedTasks[selectedList] = [newTask, ...updatedTasks[selectedList].filter(t => !t.completed), ...updatedTasks[selectedList].filter(t => t.completed)];
-    
+
+        if (editMode && taskIndex >= 0) {
+            updatedTasks[selectedList][taskIndex] = updatedTask;
+        } else {
+            updatedTasks[selectedList] = [
+                updatedTask,
+                ...updatedTasks[selectedList].filter((t) => !t.completed),
+                ...updatedTasks[selectedList].filter((t) => t.completed),
+            ];
+        }
+
         setTasks(updatedTasks);
-    
-        setError("");
         navigate(-1);
     };
-    
 
     return (
         <div className="new-task">
-            <h2>New task</h2>
+            <h2>{editMode ? "Edit Task" : "New Task"}</h2>
 
             <div>
                 <label htmlFor="list-select"></label>
@@ -61,6 +71,7 @@ function NewTask({ lists, tasks, setTasks }: HomeType) {
                     id="list-select"
                     value={selectedList}
                     onChange={(e) => setSelectedList(e.target.value)}
+                    disabled={editMode}
                 >
                     <option value="">Lists</option>
                     {lists.map((list, index) => (
@@ -101,9 +112,11 @@ function NewTask({ lists, tasks, setTasks }: HomeType) {
 
             {error && <p style={{ color: "red" }}>{error}</p>}
 
-            <button onClick={handleCreateTask}>Create</button>
+            <button onClick={handleSaveTask}>
+                {editMode ? "Save Changes" : "Create"}
+            </button>
         </div>
     );
-}
+};
 
 export default NewTask;
