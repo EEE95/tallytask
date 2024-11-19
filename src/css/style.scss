@@ -400,14 +400,16 @@ h3, h4{
     }
     
     .description-text {
-        font-family: partial.$font-text;
-        font-size: small;
-        margin-top: 5px;
         margin-left: 50px;
+        margin-right: 50px;
         padding: 10px;
-        font-size: 14px;
         color: partial.$text-color;
         line-height: 1.4;
+
+        p{
+            font-size: 14px;
+            font-family: partial.$font-text;
+        }
     }
 }
 

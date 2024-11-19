@@ -357,14 +357,15 @@ h3, h4 {
   transform: scale(1.1);
 }
 .list-page .description-text {
-  font-family: "Roboto", sans-serif;
-  font-size: small;
-  margin-top: 5px;
   margin-left: 50px;
+  margin-right: 50px;
   padding: 10px;
-  font-size: 14px;
   color: #010101;
   line-height: 1.4;
+}
+.list-page .description-text p {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
 }
 
 .badge-display {
