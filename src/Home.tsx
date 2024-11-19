@@ -37,7 +37,6 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
 
     return (
         <div className="home-page">
-            <Link to="/badges">Badges</Link>
             <h2>To do lists</h2>
             <div className="create-list">
                 <input
