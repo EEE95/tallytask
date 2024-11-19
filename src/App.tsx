@@ -11,10 +11,60 @@ import Badges from './component/Badges';
 function App() {
     const savedNickname = localStorage.getItem('nickname') || 'Tallybuddy';
     const [nickname, setNickname] = useState(savedNickname);
-    const [lists, setLists] = useState([]); 
-    const [tasks, setTasks] = useState({});
+    const [lists, setLists] = useState<string[]>([]);
+    const [tasks, setTasks] = useState<{ [key: string]: any[] }>({});
     const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
     const [theme, setTheme] = useState<string | null>(null);
+
+        // Load data from localStorage when the component mounts
+    useEffect(() => {
+        const savedLists = localStorage.getItem('lists');
+        const savedTasks = localStorage.getItem('tasks');
+        const savedAvatar = localStorage.getItem('selectedAvatar');
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedLists) {
+            setLists(JSON.parse(savedLists));
+        }
+
+        if (savedTasks) {
+            setTasks(JSON.parse(savedTasks));
+        }
+
+        if (savedAvatar) {
+            setSelectedAvatar(savedAvatar);
+        }
+
+        if (savedTheme) {
+            setTheme(savedTheme);
+        }
+    }, []);
+
+    // Save data to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('nickname', nickname);
+    }, [nickname]);
+
+    useEffect(() => {
+        localStorage.setItem('lists', JSON.stringify(lists));
+    }, [lists]);
+
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks]);
+
+    useEffect(() => {
+        if (selectedAvatar) {
+            localStorage.setItem('selectedAvatar', selectedAvatar);
+        }
+    }, [selectedAvatar]);
+
+    useEffect(() => {
+        if (theme) {
+            localStorage.setItem('theme', theme);
+        }
+    }, [theme]);
+
 
     useEffect(() => {
         localStorage.setItem('nickname', nickname);
