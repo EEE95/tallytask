@@ -9,40 +9,32 @@ import Personalize from './component/Personalize';
 import Badges from './component/Badges';
 
 function App() {
-    const savedNickname = localStorage.getItem('nickname') || 'Tallybuddy';
-    const [nickname, setNickname] = useState(savedNickname);
-    const [lists, setLists] = useState<string[]>([]);
-    const [tasks, setTasks] = useState<{ [key: string]: any[] }>({});
-    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
-    const [theme, setTheme] = useState<string | null>(null);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [nickname, setNickname] = useState<string>(
+        localStorage.getItem('nickname') || 'Tallybuddy'
+    );
 
-        // Load data from localStorage when the component mounts
-    useEffect(() => {
-        try {
+    const initializeLists = () => {
         const savedLists = localStorage.getItem('lists');
+        return savedLists ? JSON.parse(savedLists) : [];
+    };
+
+    const initializeTasks = () => {
         const savedTasks = localStorage.getItem('tasks');
-        const savedAvatar = localStorage.getItem('selectedAvatar');
-        const savedTheme = localStorage.getItem('theme');
+        return savedTasks ? JSON.parse(savedTasks) : {};
+    };
 
-        if (savedLists) {
-            setLists(JSON.parse(savedLists));
-        }
+    const [lists, setLists] = useState<string[]>(initializeLists);
+    const [tasks, setTasks] = useState<{ [key: string]: any[] }>(initializeTasks);
 
-        if (savedTasks) {
-            setTasks(JSON.parse(savedTasks));
-        }
+    const [selectedAvatar, setSelectedAvatar] = useState<string | null>(
+        localStorage.getItem('selectedAvatar')
+    );
 
-        if (savedAvatar) {
-            setSelectedAvatar(savedAvatar);
-        }
+    const [theme, setTheme] = useState<string | null>(
+        localStorage.getItem('theme')
+    ); 
 
-        if (savedTheme) {
-            setTheme(savedTheme);
-        }
-    } catch (error) {
-        console.error('Failed to load data from localStorage', error);}
-    }, []);
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
     // Save data to localStorage whenever it changes
     useEffect(() => {
@@ -70,13 +62,6 @@ function App() {
     }, [theme]);
 
     useEffect(() => {
-        const savedAvatar = localStorage.getItem('selectedAvatar');
-        if (savedAvatar) {
-            setSelectedAvatar(savedAvatar);
-        }
-    }, []);
-
-    useEffect(() => {
         const handleStorageChange = (event: StorageEvent) => {
             if (event.key === 'lists' && event.newValue) {
                 setLists(JSON.parse(event.newValue));
@@ -99,6 +84,7 @@ function App() {
         return () => window.removeEventListener('storage', handleStorageChange);
     }, []);
 
+    //Responsivitet
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
