@@ -181,6 +181,9 @@ h3, h4 {
   margin-bottom: 4px;
   font-family: "Roboto", sans-serif;
 }
+.home-page .no-tasks-text {
+  margin-top: 20px;
+}
 
 /* Create a new task */
 .new-task {

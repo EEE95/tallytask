@@ -53,6 +53,10 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
                 <button onClick={handleCreateList} type="submit"> + </button>
             </div>
 
+            {lists.length === 0 ? (
+                <p className="no-tasks-text">No lists created yet. Start by adding a new list.</p>
+            ) : (
+
             <ul>
                 {lists.map((list, index) => (
                     <li key={index} className="list-item">
@@ -71,6 +75,7 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
                     </li>
                 ))}
             </ul>
+            )}
         </div>
     );
 }
