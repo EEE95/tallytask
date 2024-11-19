@@ -17,7 +17,6 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
             i === index ? { ...task, completed: !task.completed } : task
         );
 
-        
         updatedTasks.sort((a, b) => Number(a.completed) - Number(b.completed));
         setTasks((prev) => ({ ...prev, [listName]: updatedTasks }));
     };

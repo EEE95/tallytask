@@ -24,12 +24,13 @@
         img{
             cursor: pointer;
         }
+        .selected-theme{
+            outline: 4px solid #405069;
+            border-radius: 15px;
+        }
     }
 
-    .selected-theme{
-        outline: 4px solid #405069;
-        border-radius: 15px;
-    }
+    
 
     .avatar-grid{
         padding: 1.2em;
@@ -45,12 +46,11 @@
             background-color: transparent;
             cursor: pointer;
         }
-    }
-
-    .selected-avatar{
-        outline: 2px solid #405069;
-        padding: 0.3em;
-        border-radius: 20px;
+        .selected-avatar{
+            outline: 2px solid #405069;
+            padding: 0.3em;
+            border-radius: 20px;
+        }
     }
 
     .reset-button{

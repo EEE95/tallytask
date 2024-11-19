@@ -18,6 +18,7 @@ function App() {
 
         // Load data from localStorage when the component mounts
     useEffect(() => {
+        try {
         const savedLists = localStorage.getItem('lists');
         const savedTasks = localStorage.getItem('tasks');
         const savedAvatar = localStorage.getItem('selectedAvatar');
@@ -38,6 +39,8 @@ function App() {
         if (savedTheme) {
             setTheme(savedTheme);
         }
+    } catch (error) {
+        console.error('Failed to load data from localStorage', error);}
     }, []);
 
     // Save data to localStorage whenever it changes
@@ -65,23 +68,36 @@ function App() {
         }
     }, [theme]);
 
-
-    useEffect(() => {
-        localStorage.setItem('nickname', nickname);
-    }, [nickname]);
-
     useEffect(() => {
         const savedAvatar = localStorage.getItem('selectedAvatar');
         if (savedAvatar) {
             setSelectedAvatar(savedAvatar);
         }
     }, []);
-    
+
     useEffect(() => {
-        if (selectedAvatar) {
-            localStorage.setItem('selectedAvatar', selectedAvatar);
-        }
-    }, [selectedAvatar]);
+        const handleStorageChange = (event: StorageEvent) => {
+            if (event.key === 'lists' && event.newValue) {
+                setLists(JSON.parse(event.newValue));
+            }
+            if (event.key === 'tasks' && event.newValue) {
+                setTasks(JSON.parse(event.newValue));
+            }
+            if (event.key === 'nickname' && event.newValue) {
+                setNickname(event.newValue);
+            }
+            if (event.key === 'selectedAvatar' && event.newValue) {
+                setSelectedAvatar(event.newValue);
+            }
+            if (event.key === 'theme' && event.newValue) {
+                setTheme(event.newValue);
+            }
+        };
+    
+        window.addEventListener('storage', handleStorageChange);
+        return () => window.removeEventListener('storage', handleStorageChange);
+    }, []);
+    
     
 
     return (

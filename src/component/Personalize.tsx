@@ -46,12 +46,12 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
 
     const handleResetAvatar = () => {
       setSelectedAvatar(gear);
-      setSelectedAvatarState(null);
+      localStorage.removeItem('selectedAvatar'); 
     };
 
     const handleResetTheme = () => {
       setTheme(null);
-      setSelectedTheme(null);
+      localStorage.removeItem('theme');
     };
 
     const handleDone = () => {
