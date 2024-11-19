@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat' }}>
             
-            <div className='left'  className={theme ? 'text-background' : ''}>
+            <div className={`left ${theme ? 'text-background' : ''}`}>
                 <img className='logo' src={logo} alt='TallyTask logo' />
                 <TodaysDay />
                 <h1>Hi {nickname}!</h1>
@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
                 </blockquote>
             </div>
 
-            <div className='right' className={theme ? 'text-background2' : ''}>
+            <div className={`right ${theme ? 'text-background2' : ''}`}>
                 {/* Link to Personalize page */}
                 <Link to="/personalize">
                     <button className="personalize-button">
