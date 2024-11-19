@@ -44,8 +44,13 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
                     placeholder="New list name"
                     value={newListName}
                     onChange={(e) => setNewListName(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key ==="Enter") {
+                            handleCreateList();
+                        }
+                    }}
                 />
-                <button onClick={handleCreateList}> + </button>
+                <button onClick={handleCreateList} type="submit"> + </button>
             </div>
 
             <ul>
