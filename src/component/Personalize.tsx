@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../css/maja.css';
+import '../css/style.css';
 import gear from '../assets/gear.png';
 import winterTheme from '../assets/vintertema.png';
 import springTheme from '../assets/springtema.png';
