@@ -197,6 +197,10 @@ h3, h4{
             font-family: partial.$font-text;
         }
     }
+
+    .no-tasks-text{
+        margin-top: 20px;
+    }
     
 }
 
@@ -279,6 +283,29 @@ h3, h4{
 }
 
 /* Tasks page */
+.back-button{
+    margin-left: 1em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: partial.$font-titel;
+    background-color: transparent;
+    border-radius: 7px;
+    border: solid 1px black;
+    color: partial.$text-color;
+    padding: 3px;
+
+    img{
+        width: 10px;
+        transform: rotate(180deg);
+    }
+
+    &:hover{
+        cursor: pointer;
+        background-color: partial.$accent-color;
+        color: white;
+    }
+}
 .list-page{
     margin: 10px;
     color: partial.$bg-color;
@@ -347,6 +374,10 @@ h3, h4{
             border: solid 1px black;
             color: partial.$text-color;
             background-color: partial.$bg-color;
+
+            &:hover{
+                cursor: pointer;
+            }
         }
         
         .add-task{
@@ -356,6 +387,12 @@ h3, h4{
             border: solid 1px black;
             color: partial.$text-color;
             background-color: partial.$bg-color;
+
+            &:hover{
+                cursor: pointer;
+                background-color: partial.$accent-color;
+                color: white;
+            }
         }
     }
     
