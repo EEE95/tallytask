@@ -146,6 +146,7 @@ h3, h4{
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
             background-color: partial.$bg-color;
+            padding-left: 10px;
 
             &::placeholder{
                 font-weight: bold;
@@ -153,7 +154,6 @@ h3, h4{
                 opacity: 0.5;
                 font-family: partial.$font-text;
                 padding: 5px;
-                padding-left: 10px;
             }
         }
 
