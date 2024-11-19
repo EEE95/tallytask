@@ -139,6 +139,7 @@ h3, h4 {
   opacity: 0.5;
   font-family: "Roboto", sans-serif;
   padding: 5px;
+  padding-left: 10px;
 }
 .home-page .create-list input::placeholder {
   font-weight: bold;
@@ -146,6 +147,7 @@ h3, h4 {
   opacity: 0.5;
   font-family: "Roboto", sans-serif;
   padding: 5px;
+  padding-left: 10px;
 }
 .home-page .create-list button {
   padding: 0 5px 0 5px;
