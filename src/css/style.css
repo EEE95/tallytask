@@ -265,13 +265,13 @@ h3, h4 {
   margin: 10px;
 }
 .list-page .task-item {
-  display: flex;
   margin-bottom: 15px;
   padding: 10px;
 }
 .list-page .task-item .task-content {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 .list-page .task-item .task-content .task-checkbox {
@@ -284,6 +284,7 @@ h3, h4 {
   flex-grow: 1;
   border-bottom: solid 1px black;
   margin-bottom: 5px;
+  font-family: "Roboto", sans-serif;
 }
 .list-page .task-item .task-content .task-name.completed {
   text-decoration: line-through;
@@ -341,21 +342,26 @@ h3, h4 {
 .list-page .task-description {
   margin-top: 10px;
 }
-.list-page .task-description .see-more {
+.list-page .see-more {
   background-color: transparent;
   margin-bottom: 5px;
   color: #010101;
+  font-family: "Roboto", sans-serif;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s;
 }
-.list-page .task-description .see-more:hover {
+.list-page .see-more:hover {
   transform: scale(1.1);
 }
-.list-page .task-description .description-text {
+.list-page .description-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
   margin-top: 5px;
+  margin-left: 50px;
+  padding: 10px;
   font-size: 14px;
   color: #010101;
   line-height: 1.4;

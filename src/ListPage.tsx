@@ -86,23 +86,17 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                             </span>
 
                             {task.description && (
-                                <div className="task-description">
-                                    <button
-                                        className="see-more"
-                                        onClick={() =>
-                                            setExpandedTaskIndex(
-                                                expandedTaskIndex === index ? null : index
-                                            )
-                                        }
-                                    >
-                                        {expandedTaskIndex === index ? "See Less" : "See More"}
-                                    </button>
-                                    {expandedTaskIndex === index && (
-                                        <p className="description-text">{task.description}</p>
-                                    )}
-                                </div>
+                                <button
+                                    className="see-more"
+                                    onClick={() =>
+                                        setExpandedTaskIndex(expandedTaskIndex === index ? null : index)
+                                    }
+                                >
+                                    {expandedTaskIndex === index ? "See Less" : "See More"}
+                                </button>
                             )}
 
+                                        
                             <div className="task-actions">
                                 <button onClick={() => handleEditTask(index)}>
                                     <img src={edit} alt="edit task" />
@@ -112,6 +106,12 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                                 </button>
                             </div>
                         </div>
+
+                        {expandedTaskIndex === index && task.description && (
+                            <div className="description-text">
+                                <p>{task.description}</p>
+                            </div>
+                        )}
                     </li>
                 ))}
             </ul>
