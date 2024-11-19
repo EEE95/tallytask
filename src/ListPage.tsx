@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import trash from './assets/trash.png';
 import edit from './assets/edit.png';
 import { RouteParams, HomeType, Task } from "./types";
-import '../src/css/elisabeth.css';
 
 const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const { id } = useParams<RouteParams>();
