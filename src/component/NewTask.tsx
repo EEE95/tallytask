@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { HomeType } from '../types';
 
-function NewTask({ lists, tasks, setTasks }) {
+function NewTask({ lists, tasks, setTasks }: HomeType) {
     const [task, setTask] = useState("");
     const [description, setDescription] = useState(""); 
     const [priority, setPriority] = useState(""); 

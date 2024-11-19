@@ -364,6 +364,34 @@ h3, h4{
         background-color: #96E4A7; /* Grøn for lav prioritet */
     }
 
+    .task-description {
+        margin-top: 10px;
+    
+        .see-more {
+            background-color: transparent;
+            margin-bottom: 5px;
+            color: partial.$text-color;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+    
+            &:hover {
+                border: black 1px solid;
+                border-radius: 10px;
+            }
+        }
+    
+        .description-text {
+            margin-top: 5px;
+            font-size: 14px;
+            color: partial.$text-color;
+            line-height: 1.4;
+        }
+    }
+    
+
 }
 
 .badge-display{
