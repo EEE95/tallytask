@@ -23,14 +23,14 @@ const Badges = () => {
     return (
         <div className='badge-display'>
             <h2>BADGES</h2>
-            <div>
+            <div className='badge-streak'>
                 <h3>Streak</h3>
                 <div>
                 <img src={streak_visited} alt='streak badge visited' />
                 <img src={streak_used} alt='streak badge used' />
                 </div>
             </div>
-            <div>
+            <div className='badge-tasks'>
                 <h3>Tasks</h3>
                 <div>
                 <img src={badge_taskdone} alt='badge that counts tasks done' />
@@ -38,7 +38,7 @@ const Badges = () => {
                 <img src={badge_empty_round} alt='empty badge' />
                 </div>
             </div>
-            <div>
+            <div className='badge-bucketlists'>
                 <h3>Bucketlists</h3>
                 <div>
                 <img src={badge_bl_autumn} alt='badge for autumn bucketlist' />
@@ -49,7 +49,7 @@ const Badges = () => {
                 <img src={badge_bl_summer} alt='badge for summer bucketlist' />
                 </div>
             </div>
-            <div>
+            <div className='badge-use'>
                 <h3>Use of app</h3>
                 <div>
                 <img src={badge_firstlistcreated} alt='badge for first list created' />

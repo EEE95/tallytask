@@ -327,8 +327,39 @@ h3, h4 {
   background-color: #96E4A7; /* Grøn for lav prioritet */
 }
 
-.badge-display img {
+.badge-display {
+  margin: 1em;
+}
+.badge-display h2 {
+  margin-bottom: 10px;
+}
+.badge-display .badge-streak {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.badge-display .badge-streak div {
+  display: flex;
+  justify-content: center;
+}
+.badge-display .badge-streak div img {
   max-width: 100%;
-  width: 150px;
+  width: 130px;
+  margin: 20px;
+}
+.badge-display .badge-tasks, .badge-display .badge-bucketlists, .badge-display .badge-use {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.badge-display .badge-tasks div, .badge-display .badge-bucketlists div, .badge-display .badge-use div {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.badge-display .badge-tasks div img, .badge-display .badge-bucketlists div img, .badge-display .badge-use div img {
+  max-width: 100%;
+  width: 110px;
   margin: 20px;
 }/*# sourceMappingURL=style.css.map */

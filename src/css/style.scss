@@ -367,10 +367,44 @@ h3, h4{
 }
 
 .badge-display{
+    margin: 1em;
     
-    img{
-        max-width: 100%;
-        width: 150px;
-        margin: 20px;
+    h2{
+        margin-bottom: 10px;
     }
+
+    .badge-streak{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+
+        div{
+            display: flex;
+            justify-content: center;
+
+            img{
+                max-width: 100%;
+                width: 130px;
+                margin: 20px;
+            }
+        }
+    }
+
+    .badge-tasks, .badge-bucketlists, .badge-use{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+
+        div{
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            img{
+                max-width: 100%;
+                width: 110px;
+                margin: 20px;
+            }
+    }}
 }
