@@ -45,12 +45,11 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat' }}>
+            <div className={theme ? 'text-background' : ''}>
             <div className='left'>
                 <img className='logo' src={logo} alt='TallyTask logo' />
-                <div className={theme ? 'text-background' : ''}>
-                    <TodaysDay />
-                    <h1>Hi {nickname}!</h1>
-                </div>
+                <TodaysDay />
+                <h1>Hi {nickname}!</h1>
             </div>
 
             <div className='right'>
@@ -66,9 +65,10 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
                 </Link>
             </div>
 
-            <blockquote className={theme ? 'text-background2' : ''}>
+            <blockquote>
                 <p dangerouslySetInnerHTML={{ __html: quote }} />
             </blockquote>
+        </div>
         </div>
     );
 };

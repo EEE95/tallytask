@@ -55,8 +55,8 @@ h3, h4 {
 }
 .header .right {
   display: flex;
-  justify-content: right;
-  margin-right: 1em;
+  justify-content: flex-end;
+  grid-column: 2;
 }
 .header .img-gear {
   background-color: transparent;

@@ -56,9 +56,8 @@ h3, h4{
 
     .right{
         display: flex;
-        justify-content: right;
-        margin-right: 1em;
-        
+        justify-content: flex-end;
+        grid-column: 2;
     }
 
     .img-gear{
