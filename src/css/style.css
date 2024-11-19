@@ -198,6 +198,9 @@ h3, h4 {
   opacity: 0.5;
   cursor: not-allowed;
 }
+.home-page .bucketlist li {
+  list-style-type: none;
+}
 
 /* Create a new task */
 .new-task {

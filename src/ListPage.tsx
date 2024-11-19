@@ -84,7 +84,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                                 onChange={() => handleCompleteTask(index)}
                                 className="task-checkbox"
                             />
-
+                            
                             <span className={`task-name ${task.completed ? "completed" : ""}`}>
                                 {task.name}
                             </span>

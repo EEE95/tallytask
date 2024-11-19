@@ -51,7 +51,9 @@ const BucketList = () => {
                     <h3>{list.name}</h3>
                     <ul>
                         {list.tasks.map((task, taskIndex) => (
-                            <li key={taskIndex}>{task.name}</li>
+                           <li key={taskIndex}>
+                           {task.name}
+                            </li>
                         ))}
                     </ul>
                 </div>
