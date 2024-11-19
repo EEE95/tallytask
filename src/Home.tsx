@@ -83,7 +83,7 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
             </div>
 
             {lists.length === 0 ? (
-                <p className="no-tasks-text">No lists created yet. Start by adding a new list.</p>
+                <p className="no-tasks-text">No lists created yet. Start by adding a new list or pick one of the Bucketlists below!</p>
             ) : (
 
             <ul>
