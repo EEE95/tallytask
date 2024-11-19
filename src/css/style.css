@@ -84,7 +84,6 @@ h3, h4 {
   left: 0;
   width: 100%;
   background-color: #AEBCD2;
-  color: white;
   text-align: center;
   padding: 10px 0;
   z-index: 1000;
@@ -102,6 +101,9 @@ h3, h4 {
   background-color: #405069;
   border-radius: 50%;
   padding: 5px;
+}
+.sticky-footer .badges-button {
+  width: 47px;
 }
 
 /*Home-page*/
