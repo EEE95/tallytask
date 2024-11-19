@@ -1,6 +1,6 @@
 # React + Vite
 
-Velkommen til TallyTask! En taskmanager, hvorpå du kan skabe overblik over alle dine forestående opgaver. Her kan du lave lister med opgaver, der passer til dine behov. Med forudoprettede Bucketlists sætter TallyTask fokus på at nyde de små ting i hverdagen – perfekt til dig, der søger inspiration til hyggelige aktiviteter.
+Velkommen til TallyTask! En taskmanager, hvorpå du kan skabe overblik over alle dine forestående opgaver. Her kan du lave lister med opgaver, der passer til dine behov. Med forudoprettede Bucketlists og hyggelige temaer sætter TallyTask fokus på at nyde de små ting i hverdagen – perfekt til dig, der søger inspiration til hyggelige aktiviteter.
 
 
 #README: Sådan åbner du en Localhost med Typescript og React
