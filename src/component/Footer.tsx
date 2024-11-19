@@ -10,7 +10,10 @@ interface FooterProps {
 
   const Footer: React.FC<FooterProps> = ({ theme }) => {
     return (
-        <div className="sticky-footer" style={{ backgroundImage: theme ? `url(${theme})` : 'none' }}>
+        <div className="sticky-footer" style={{ backgroundImage: theme ? `url(${theme})` : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat' }}>
             <div className="button-container">
                 <Link to="/"><img className="link-button" src={home} alt="home button" /></Link>
                 <Link to="/newtask"><img className="link-button" src={plus} alt="add new task button" /></Link>

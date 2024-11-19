@@ -41,7 +41,10 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
 
 
     return (
-        <div className='header' style={{ backgroundImage: theme ? `url(${theme})` : 'none' }}>
+        <div className='header' style={{ backgroundImage: theme ? `url(${theme})` : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat' }}>
             <div className='left'>
                 <img className='logo' src={logo} alt='TallyTask logo' />
                 <div className={theme ? 'text-background' : ''}>
