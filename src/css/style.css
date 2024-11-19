@@ -326,6 +326,28 @@ h3, h4 {
 .list-page .priority-dot.low {
   background-color: #96E4A7; /* Grøn for lav prioritet */
 }
+.list-page .task-description {
+  margin-top: 10px;
+}
+.list-page .task-description .see-more {
+  background-color: transparent;
+  color: #010101;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+.list-page .task-description .see-more:hover {
+  background-color: #0056b3;
+}
+.list-page .task-description .description-text {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #010101;
+  line-height: 1.4;
+}
 
 .badge-display img {
   max-width: 100%;

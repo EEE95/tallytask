@@ -11,6 +11,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const listTasks = tasks[listName] || [];
 
     const [filter, setFilter] = useState<string>("all"); 
+    const [expandedTaskIndex, setExpandedTaskIndex] = useState<number | null>(null);
 
     const handleCompleteTask = (index: number) => {
         const updatedTasks = listTasks.map((task, i) =>
@@ -64,8 +65,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                 {filteredTasks.map((task, index) => (
                     <li key={index} className={`task-item priority-${task.priority}`}>
                         <div className="task-content">
-                            
-                        <div className={`priority-dot ${task.priority}`}></div>
+                            <div className={`priority-dot ${task.priority}`}></div>
                         
                             {/* Checkbox til 'completed' */}
                             <input
@@ -79,6 +79,25 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                             <span className={`task-name ${task.completed ? "completed" : ""}`}>
                                 {task.name}
                             </span>
+
+                             {/* "See More"-knap */}
+                            {task.description && (
+                                <div className="task-description">
+                                    <button
+                                        className="see-more"
+                                        onClick={() =>
+                                            setExpandedTaskIndex(
+                                                expandedTaskIndex === index ? null : index
+                                            )
+                                        }
+                                    >
+                                        {expandedTaskIndex === index ? "See Less" : "See More"}
+                                    </button>
+                                    {expandedTaskIndex === index && (
+                                        <p className="description-text">{task.description}</p>
+                                    )}
+                                </div>
+                            )}
                             
                             
                             {/* Redigering/sletning */}
@@ -91,6 +110,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                                 </button>
                             </div>
                         </div>
+                        
                     </li>
                 ))}
             </ul>
