@@ -340,8 +340,7 @@ h3, h4 {
   transition: background-color 0.3s;
 }
 .list-page .task-description .see-more:hover {
-  border: black 1px solid;
-  border-radius: 10px;
+  transform: scale(1.1);
 }
 .list-page .task-description .description-text {
   margin-top: 5px;
