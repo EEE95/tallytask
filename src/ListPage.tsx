@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import trash from './assets/trash.png';
 import edit from './assets/edit.png';
+import arrow from './assets/arrow.png'
 import { RouteParams, HomeType } from "./types";
 
 const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
@@ -47,6 +48,9 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
 
     return (
         <div className="list-page">
+            <button onClick={() => navigate('/')} className="back-button">
+                <img src={arrow} alt="back to lists" /> Lists
+            </button>
             <h2>{listName}</h2>
 
             <div className="actions">

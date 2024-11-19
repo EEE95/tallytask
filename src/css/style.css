@@ -254,6 +254,28 @@ h3, h4 {
 }
 
 /* Tasks page */
+.back-button {
+  margin-left: 1em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Caveat Brush", serif;
+  background-color: transparent;
+  border-radius: 7px;
+  border: solid 1px black;
+  color: #010101;
+  padding: 3px;
+}
+.back-button img {
+  width: 10px;
+  transform: rotate(180deg);
+}
+.back-button:hover {
+  cursor: pointer;
+  background-color: #405069;
+  color: white;
+}
+
 .list-page {
   margin: 10px;
   color: #FFFCF5;
@@ -315,6 +337,9 @@ h3, h4 {
   color: #010101;
   background-color: #FFFCF5;
 }
+.list-page .actions .filter-select:hover {
+  cursor: pointer;
+}
 .list-page .actions .add-task {
   font-family: "Roboto", sans-serif;
   padding: 5px;
@@ -322,6 +347,11 @@ h3, h4 {
   border: solid 1px black;
   color: #010101;
   background-color: #FFFCF5;
+}
+.list-page .actions .add-task:hover {
+  cursor: pointer;
+  background-color: #405069;
+  color: white;
 }
 .list-page .priority-dot {
   width: 15px;
