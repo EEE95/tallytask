@@ -15,6 +15,7 @@ function App() {
     const [tasks, setTasks] = useState<{ [key: string]: any[] }>({});
     const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
     const [theme, setTheme] = useState<string | null>(null);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
         // Load data from localStorage when the component mounts
     useEffect(() => {
@@ -97,13 +98,24 @@ function App() {
         window.addEventListener('storage', handleStorageChange);
         return () => window.removeEventListener('storage', handleStorageChange);
     }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     
     
 
     return (
       <Router>
-          <div className="App">
+          <div className={`App ${isMobile ? 'mobile' : 'desktop'}`}>
               <Header nickname={nickname} selectedAvatar={selectedAvatar} theme={theme} />
+              
+              {isMobile ? (
               <Routes>
                   <Route 
                     path="/" 
@@ -126,6 +138,15 @@ function App() {
                       element={<Badges />} 
                   />
               </Routes>
+
+            ) : (
+                    // Desktop: Show everything at once
+                    <div className="desktop-layout">
+                        <Home lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />
+                        <ListPage lists={lists} tasks={tasks} setTasks={setTasks} />
+                        <Badges />
+                    </div>
+                )}
               <Footer theme={theme} />
           </div>
       </Router>

@@ -385,4 +385,9 @@ h3, h4 {
   max-width: 100%;
   width: 110px;
   margin: 20px;
+}
+
+.desktop-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
 }/*# sourceMappingURL=style.css.map */
