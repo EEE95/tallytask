@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
                 </Link>
             </div>
 
-            <blockquote className={theme ? 'text-background' : ''}>
+            <blockquote className={theme ? 'text-background2' : ''}>
                 <p dangerouslySetInnerHTML={{ __html: quote }} />
             </blockquote>
         </div>
