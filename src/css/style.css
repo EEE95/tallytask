@@ -102,6 +102,9 @@ h3, h4 {
   border-radius: 50%;
   padding: 5px;
 }
+.sticky-footer .badges-button {
+  width: 47px;
+}
 
 /*Home-page*/
 .home-page {

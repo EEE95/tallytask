@@ -17,7 +17,7 @@ interface FooterProps {
             <div className="button-container">
                 <Link to="/"><img className="link-button" src={home} alt="home button" /></Link>
                 <Link to="/newtask"><img className="link-button" src={plus} alt="add new task button" /></Link>
-                <Link to="/badges"><img className="link-button" src={badge} alt="how much have I used the app badges" /></Link>
+                <Link to="/badges"><img className="link-button badges-button" src={badge} alt="how much have I used the app badges" /></Link>
             </div>
             <p>© 2024 TallyTask</p>
         </div>
