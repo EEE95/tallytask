@@ -170,6 +170,18 @@ h3, h4 {
   width: 20px;
   height: 20px;
 }
+.home-page .list-link {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-page .list-link .task-count {
+  font-size: 12px;
+  font-weight: 200;
+  margin-bottom: 4px;
+  font-family: "Roboto", sans-serif;
+}
 
 /* Create a new task */
 .new-task {

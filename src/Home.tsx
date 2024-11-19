@@ -52,7 +52,10 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
                 {lists.map((list, index) => (
                     <li key={index} className="list-item">
                         <Link to={`/list/${index}`} className="list-link">
-                            {list} ({countCompletedTasks(list)}/{tasks[list]?.length || 0})
+                            {list} 
+                            <span className="task-count">
+                                ({countCompletedTasks(list)}/{tasks[list]?.length || 0})
+                            </span>
                         </Link>
                         <button
                             className="delete-button"
