@@ -331,16 +331,17 @@ h3, h4 {
 }
 .list-page .task-description .see-more {
   background-color: transparent;
+  margin-bottom: 5px;
   color: #010101;
   border: none;
   padding: 5px 10px;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s;
 }
 .list-page .task-description .see-more:hover {
-  background-color: #0056b3;
+  border: black 1px solid;
+  border-radius: 10px;
 }
 .list-page .task-description .description-text {
   margin-top: 5px;
