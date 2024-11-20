@@ -521,7 +521,7 @@ label {
 .p-styling h1 {
   padding: 0.5em;
 }
-.p-styling h3 {
+.p-styling h2 {
   padding-left: 0.8em;
   padding-top: 0.5em;
 }
@@ -531,12 +531,9 @@ label {
 }
 .p-styling .theme-container {
   margin: 1em;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 1.2em;
-  justify-items: flex-start;
-  width: 40%;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 .p-styling .theme-container img {
   cursor: pointer;
@@ -552,17 +549,13 @@ label {
 }
 .p-styling .avatar-grid {
   padding: 1.2em;
-  display: grid;
-  align-items: center;
-  justify-items: flex-start;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 5em);
-  -moz-column-gap: 1.2em;
-       column-gap: 1.2em;
-  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  min-height: auto;
 }
 .p-styling .avatar-grid img {
-  height: 80%;
+  height: 70px;
   background-color: transparent;
   cursor: pointer;
 }
