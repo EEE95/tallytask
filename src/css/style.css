@@ -206,12 +206,13 @@ label {
 .home-page .delete-button img {
   width: 20px;
   height: 20px;
+  margin-top: 8px;
 }
 .home-page .delete-button:hover {
   transform: scale(1.2);
 }
 .home-page .list-link {
-  width: 90%;
+  width: 94%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -224,7 +225,6 @@ label {
 .home-page .list-link .task-count {
   font-size: 12px;
   font-weight: 200;
-  margin-bottom: 4px;
   font-family: "Roboto", sans-serif;
 }
 .home-page .no-tasks-text {
