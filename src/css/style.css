@@ -255,7 +255,7 @@ label {
   width: 90%;
   text-align: center;
 }
-.new-task h2 {
+.new-task h1 {
   padding-bottom: 10px;
   text-align: left;
 }
@@ -353,7 +353,7 @@ label {
   font-family: "Roboto", sans-serif;
   /*prioritet visualiseres med en prik*/
 }
-.list-page h2 {
+.list-page h1 {
   margin: 10px;
 }
 .list-page .task-item {
@@ -478,7 +478,7 @@ label {
 .badge-display {
   margin: 1em;
 }
-.badge-display h2 {
+.badge-display h1 {
   margin-bottom: 10px;
 }
 .badge-display .badge-streak {
