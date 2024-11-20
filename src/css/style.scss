@@ -114,6 +114,11 @@ h3, h4{
         background-color: partial.$accent-color;
         border-radius: 50%;
         padding: 5px;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
     }
 }
 
@@ -147,6 +152,11 @@ h3, h4{
             border-bottom-left-radius: 10px;
             background-color: partial.$bg-color;
             padding-left: 10px;
+            
+            &:hover{
+                cursor: pointer;
+                background-color: partial.$primary-color;
+            }
 
             &::placeholder{
                 font-weight: bold;
@@ -163,6 +173,11 @@ h3, h4{
             border-bottom-right-radius: 10px;
             font-size: 20px;
             background-color: partial.$bg-color;
+
+            &:hover{
+                cursor: pointer;
+                background-color: partial.$accent-color;
+            }
         }
     }
 

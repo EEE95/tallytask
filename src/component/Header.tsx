@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
         "'It always seems impossible until it´s done' - <em>Nelson Mandela</em>",
         "'<em>You got this!</em> '",
         "'Believe you can and you´re halfway there' - <em>Theodore Roosevelt</em>",
-        "'<em>Trust the process</em>'",
+        "'<em>Trust the process</em> '",
         "'Plans are nothing - planning is everything' - <em>Dwight D. Eisenhower</em>",
         "'If the plan doesn´t work, change the plan, not the goal' - <em>Daniel Hurst</em>",
         "'You can do anything you set your mind to' - <em>Ben Franklin</em>",
