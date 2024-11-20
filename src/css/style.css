@@ -285,6 +285,10 @@ h3, h4 {
   font-family: "Roboto", sans-serif;
   background-color: #405069;
 }
+.new-task button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
 
 /* ListPage */
 .back-button {

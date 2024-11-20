@@ -318,6 +318,11 @@ h3, h4{
         font-weight: 400;
         font-family: partial.$font-text;
         background-color: partial.$accent-color;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
     }
     
 }

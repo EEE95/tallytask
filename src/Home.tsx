@@ -107,7 +107,7 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
                 ))}
             </ul>
             )}
-            <h3 className="bucketlist-overskrift" >Premade bucketlists for you.</h3>
+            <h3 className="bucketlist-overskrift" >Premade bucketlists for you</h3>
             <div className="reveal-premade-lists">
                 <img 
                     src={AutumnBucket} 
