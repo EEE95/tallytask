@@ -5,7 +5,7 @@ import AutumnBucket from "./assets/autumnbucket.png";
 import SummerBucket from "./assets/summerbucket.png";
 import SpringBucket from "./assets/springbucket.png";
 import { HomeType, PremadeList } from "./types";
-import { premadeLists } from "./component/BucketList";
+import { premadeLists } from "./component/Bucketlist";
 import Confirm from "./component/Confirm";
 import Nocreate from "./component/Nocreate";
 

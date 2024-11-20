@@ -248,7 +248,7 @@ label {
   transform: scale(1.05);
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
-.home-page .reveal-image .reveal-image.faded {
+.home-page .reveal-image.faded {
   opacity: 0.5;
   cursor: not-allowed;
 }

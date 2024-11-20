@@ -266,7 +266,6 @@ h2, h3, h4{
     .reveal-premade-lists {
         margin-top: 20px;
         text-align: left;
-       
       }
       
       .reveal-image {
@@ -280,12 +279,11 @@ h2, h3, h4{
             transform: scale(1.05);
             box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
         }
-
-      .reveal-image.faded {
+    }
+    .reveal-image.faded {
         opacity: 0.5;
         cursor: not-allowed;
         }
-    }
 }
 
 /* Create a new task */
