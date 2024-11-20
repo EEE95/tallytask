@@ -227,7 +227,7 @@ h3, h4{
     .reveal-premade-lists {
         margin-top: 20px;
         text-align: left;
-        
+       
       }
       
       .reveal-image {
@@ -235,13 +235,16 @@ h3, h4{
         cursor: pointer;
         border-radius: 10px;
         margin-right: 1em;
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
       }
 
       .reveal-image.faded {
         opacity: 0.5;
         cursor: not-allowed;
       }
-    
+    }
 }
 
 /* Create a new task */
