@@ -188,6 +188,10 @@ h3, h4{
             width: 20px;
             height: 20px;
         }
+
+        &:hover{
+            transform: scale(1.2);
+        }
     }
 
     .list-link{
@@ -397,6 +401,10 @@ h3, h4{
                         img {
                             width: 20px;
                             height: 20px;
+                        }
+
+                        &:hover{
+                            transform: scale(1.2);
                         }
                     }
                 }
