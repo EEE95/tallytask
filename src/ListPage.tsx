@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import trash from './assets/trash.png';
 import edit from './assets/edit.png';
-import arrow from './assets/arrow.png'
-import { RouteParams, HomeType, Task } from "./types";
+import arrow from './assets/arrow.png';
+import { RouteParams, HomeType } from "./types";
+import Confirm from "./component/Confirm";
 
 const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const { id } = useParams<RouteParams>();
@@ -15,6 +16,10 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const [filter, setFilter] = useState<string>("all");
     const [expandedTaskIndex, setExpandedTaskIndex] = useState<number | null>(null);
 
+    // State til Confirm-komponenten
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [taskToDelete, setTaskToDelete] = useState<number | null>(null);
+
     const handleCompleteTask = (index: number) => {
         const updatedTasks = listTasks.map((task, i) =>
             i === index ? { ...task, completed: !task.completed } : task
@@ -24,9 +29,19 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
         setTasks((prev) => ({ ...prev, [listName]: updatedTasks }));
     };
 
-    const handleDeleteTask = (index: number) => {
-        const updatedTasks = listTasks.filter((_, taskIndex) => taskIndex !== index);
+    const confirmDeleteTask = (index: number) => {
+        setTaskToDelete(index);
+        setShowConfirm(true);
+    };
+
+    const handleDeleteTask = () => {
+        if (taskToDelete === null) return;
+
+        const updatedTasks = listTasks.filter((_, taskIndex) => taskIndex !== taskToDelete);
         setTasks((prev) => ({ ...prev, [listName]: updatedTasks }));
+
+        setShowConfirm(false);
+        setTaskToDelete(null);
     };
 
     const handleEditTask = (index: number) => {
@@ -53,8 +68,8 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                 onClick={() => navigate('/')} 
                 className="back-button"
             >
-                    <img src={arrow} alt="back to lists" /> 
-                    Lists
+                <img src={arrow} alt="back to lists" /> 
+                Lists
             </button>
 
             <h1>{listName}</h1>
@@ -115,7 +130,6 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                                 </button>
                             )}
 
-                                        
                             <div className="task-actions">
                                 <button 
                                     id="edit-task"
@@ -125,8 +139,8 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                                 </button>
                                 
                                 <button 
-                                id="delete-task"
-                                onClick={() => handleDeleteTask(index)}
+                                    id="delete-task"
+                                    onClick={() => confirmDeleteTask(index)}
                                 >
                                     <img src={trash} alt="delete task" />
                                 </button>
@@ -141,6 +155,17 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                     </li>
                 ))}
             </ul>
+
+            {showConfirm && (
+                <Confirm
+                    message={`Are you sure you want to delete this task?`}
+                    onConfirm={handleDeleteTask}
+                    onCancel={() => {
+                        setShowConfirm(false);
+                        setTaskToDelete(null);
+                    }}
+                />
+            )}
         </div>
     );
 };

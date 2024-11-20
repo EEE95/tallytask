@@ -6,6 +6,7 @@ import SummerBucket from "./assets/summerbucket.png";
 import SpringBucket from "./assets/springbucket.png";
 import { HomeType, PremadeList } from "./types";
 import { premadeLists } from "./component/BucketList";
+import Confirm from "./component/Confirm";
 
 
 const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
@@ -14,6 +15,9 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
         const saved = localStorage.getItem('createdPremadeLists');
         return saved ? JSON.parse(saved) : [];
     });
+
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [listToDelete, setListToDelete] = useState<number | null>(null);
 
     useEffect(() => {
         localStorage.setItem('createdPremadeLists', JSON.stringify(createdPremadeLists));
@@ -34,17 +38,26 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
         }
     };
 
-    const handleDeleteList = (index:number) => {
-        const listName = lists[index];
-        const updatedLists = lists.filter((_, i) => i !== index).sort();
+    const confirmDeleteList = (index: number) => {
+        setListToDelete(index);
+        setShowConfirm(true);
+    };
+
+    const handleDeleteList = () => {
+        if (listToDelete === null) return;
+
+        const listName = lists[listToDelete];
+        const updatedLists = lists.filter((_, i) => i !== listToDelete).sort();
         setLists(updatedLists);
 
-        // Hvis listen slettes, skal den også fjernes fra tasks
         const updatedTasks = { ...tasks };
-        delete updatedTasks[listName]; // Fjern tasks for den slettede liste
+        delete updatedTasks[listName];
         setTasks(updatedTasks);
 
         setCreatedPremadeLists((prev) => prev.filter((name) => name !== listName));
+
+        setShowConfirm(false);
+        setListToDelete(null);
     };
 
     const countCompletedTasks = (listName: string): number => {
@@ -93,18 +106,20 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
             </div>
 
             {lists.length === 0 ? (
-                <p className="no-tasks-text">No lists created yet. Start by adding a new list or pick one of the Bucketlists below!</p>
+                <p className="no-tasks-text">
+                    No lists created yet. Start by adding a new list or pick one of the Bucketlists below!
+                </p>
             ) : (
 
-            <ul>
+                <ul>
                 {lists.map((list, index) => (
                     <li key={index} className="list-item">
-                        <Link 
-                            to={`/list/${index}`} 
+                        <Link
+                            to={`/list/${index}`}
                             className="list-link"
                             aria-label={`View tasks in ${list}`}
-                            >
-                            {list} 
+                        >
+                            {list}
                             <span className="task-count">
                                 ({countCompletedTasks(list)}/{tasks[list]?.length || 0})
                             </span>
@@ -113,13 +128,24 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
                             id="delete-list-button"
                             aria-label={`Delete ${list} list`}
                             className="delete-button"
-                            onClick={() => handleDeleteList(index)}
+                            onClick={() => confirmDeleteList(index)}
                         >
                             <img src={trash} alt="Delete" />
-                        </button>                    
+                        </button>
                     </li>
                 ))}
-            </ul>
+                </ul>
+            )}
+
+            {showConfirm && (
+                <Confirm
+                    message={`Are you sure you want to delete the list "${lists[listToDelete || 0]}"?`}
+                    onConfirm={handleDeleteList}
+                    onCancel={() => {
+                        setShowConfirm(false);
+                        setListToDelete(null);
+                    }}
+                />
             )}
 
             <h2 className="bucketlist-overskrift" >Premade bucketlists for you</h2>
@@ -151,3 +177,11 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
 }
 
 export default Home;
+
+function setListToDelete(index: number) {
+    throw new Error("Function not implemented.");
+}
+function setShowConfirm(arg0: boolean) {
+    throw new Error("Function not implemented.");
+}
+
