@@ -305,6 +305,7 @@ h3, h4 {
 .list-page .task-item {
   margin-bottom: 15px;
   padding: 10px;
+  list-style-type: none;
 }
 .list-page .task-item .task-content {
   display: flex;
