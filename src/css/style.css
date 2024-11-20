@@ -160,6 +160,11 @@ h3, h4 {
   align-items: center;
   margin-bottom: 10px;
 }
+.home-page .list-item:hover {
+  cursor: pointer;
+  background-color: #405069;
+  color: white;
+}
 .home-page .delete-button {
   background: none;
   border: none;
@@ -174,6 +179,11 @@ h3, h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.home-page .list-link:hover {
+  cursor: pointer;
+  background-color: #405069;
+  color: white;
 }
 .home-page .list-link .task-count {
   font-size: 12px;
