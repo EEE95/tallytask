@@ -21,3 +21,9 @@ export interface PremadeList {
     name: string;
     tasks: Task[];
 }
+
+export interface ConfirmProps {
+    message: string;
+    onConfirm: () => void;
+    onCancel: () => void;
+}
