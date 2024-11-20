@@ -41,33 +41,36 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
 
 
     return (
-        <div className='header' style={{ backgroundImage: theme ? `url(${theme})` : 'none',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat' }}>
-            
+        <header 
+            className='header' 
+            style={{ 
+                backgroundImage: theme ? `url(${theme})` : 'none',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat' 
+            }}
+        >
             <div className={`left ${theme ? 'text-background' : ''}`}>
                 <img className='logo' src={logo} alt='TallyTask logo' />
                 <TodaysDay />
                 <p className='welcome-text'>Hi {nickname}!</p>
                 <blockquote>
-                <p dangerouslySetInnerHTML={{ __html: quote }} />
+                    <p dangerouslySetInnerHTML={{ __html: quote }} />
                 </blockquote>
             </div>
 
             <div className={`right ${theme ? 'text-background2' : ''}`}>
-                <Link to="/personalize">
+                <Link to="/personalize" aria-label="Personalize your task manager">
                     <button className="personalize-button">
                         <img 
-                            src={selectedAvatar || gear} //fallback til default, hvis der ikke er valgt en avatar
+                            src={selectedAvatar || gear} 
                             className='img-gear' 
                             alt="Personalize your task manager" 
                         />
                     </button>
                 </Link>
-                
             </div>
-        </div>
+        </header>
     );
 };
 

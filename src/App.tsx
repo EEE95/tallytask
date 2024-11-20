@@ -131,11 +131,17 @@ const App: React.FC = () => {
 
             ) : (
                     // Desktop: Show everything at once
-                    <div className="desktop-layout">
-                        <Home lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />
-                        <ListPage lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />
-                        <Badges />
-                    </div>
+                    <main className="desktop-layout">
+                        <section>
+                            <Home lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />
+                        </section>
+                        <section>
+                            <ListPage lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />
+                        </section>
+                        <section>
+                            <Badges />
+                        </section>
+                    </main>
                 )}
               <Footer theme={theme} />
           </div>

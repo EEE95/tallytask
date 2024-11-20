@@ -34,7 +34,17 @@ h2, h3, h4 {
 }
 
 label {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* header */
@@ -102,6 +112,9 @@ label {
 .sticky-footer .button-container {
   display: flex;
   justify-content: space-around;
+}
+.sticky-footer .button-container li {
+  list-style-type: none;
 }
 .sticky-footer .link-button {
   width: 40px;

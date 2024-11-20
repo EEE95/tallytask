@@ -68,9 +68,11 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
 
     return (
         <div className="home-page">
-            <h2>To do lists</h2>
+            <h1>To do lists</h1>
             <div className="create-list">
+                <label htmlFor="new-list">New list name</label>
                 <input
+                    id="new-list"
                     type="text"
                     placeholder="New list name"
                     value={newListName}
@@ -81,7 +83,13 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
                         }
                     }}
                 />
-                <button onClick={handleCreateList} type="submit"> + </button>
+                <button 
+                    id="create-list-button"
+                    aria-label="Create list"
+                    onClick={handleCreateList} 
+                    type="submit"
+                    > + 
+                </button>
             </div>
 
             {lists.length === 0 ? (
@@ -91,37 +99,47 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
             <ul>
                 {lists.map((list, index) => (
                     <li key={index} className="list-item">
-                        <Link to={`/list/${index}`} className="list-link">
+                        <Link 
+                            to={`/list/${index}`} 
+                            className="list-link"
+                            aria-label={`View tasks in ${list}`}
+                            >
                             {list} 
                             <span className="task-count">
                                 ({countCompletedTasks(list)}/{tasks[list]?.length || 0})
                             </span>
                         </Link>
                         <button
+                            id="delete-list-button"
+                            aria-label={`Delete ${list} list`}
                             className="delete-button"
                             onClick={() => handleDeleteList(index)}
                         >
                             <img src={trash} alt="Delete" />
-                        </button>
+                        </button>                    
                     </li>
                 ))}
             </ul>
             )}
-            <h3 className="bucketlist-overskrift" >Premade bucketlists for you</h3>
+
+            <h2 className="bucketlist-overskrift" >Premade bucketlists for you</h2>
             <div className="reveal-premade-lists">
                 <img 
+                    id="autumn-bucketlist"
                     src={AutumnBucket} 
                     alt="Reveal Autumn Bucket List" 
                     onClick={() => handleShowPremadeList('Autumn Bucket List')} 
                     className={`reveal-image ${createdPremadeLists.includes('Autumn Bucket List') ? 'faded' : ''}`}
                 />
                 <img 
+                    id="summer-bucketlist"
                     src={SummerBucket} 
                     alt="Reveal Summer Bucket List" 
                     onClick={() => handleShowPremadeList('Summer Bucket List')} 
                     className={`reveal-image ${createdPremadeLists.includes('Summer Bucket List') ? 'faded' : ''}`}
                 />
                 <img 
+                    id="spring-bucketlist"
                     src={SpringBucket} 
                     alt="Reveal Spring Bucket List" 
                     onClick={() => handleShowPremadeList('Spring Bucket List')} 

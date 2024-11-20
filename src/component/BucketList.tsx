@@ -46,17 +46,18 @@ const BucketList = () => {
     return (
         <div>
             <h1>Bucket Lists</h1>
+            
             {premadeLists.map((list, index) => (
-                <div key={index}>
-                    <h3>{list.name}</h3>
+                <section key={index} aria-labelledby={`list-heading-${index}`}>
+                    <h2 id={`list-heading-${index}`}>{list.name}</h2>
                     <ul>
                         {list.tasks.map((task, taskIndex) => (
-                           <li key={taskIndex}>
-                           {task.name}
+                            <li key={taskIndex}>
+                                {task.name}
                             </li>
                         ))}
                     </ul>
-                </div>
+                </section>
             ))}
         </div>
     );

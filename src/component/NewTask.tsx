@@ -66,13 +66,12 @@ const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
             <h1>{editMode ? "Edit Task" : "New Task"}</h1>
 
             <div>
-                <label htmlFor="list-select"></label>
+                <label htmlFor="list-select">Select a list:</label>
                 <select
                     id="list-select"
                     value={selectedList}
                     onChange={(e) => setSelectedList(e.target.value)}
                     disabled={editMode}
-                    aria-label="Select a list"
                 >
                     <option value="">Lists</option>
                     {lists.map((list, index) => (
@@ -91,7 +90,6 @@ const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                     placeholder="Task"
                     value={task}
                     onChange={(e) => setTask(e.target.value)}
-                    aria-label="Task"
                 />
                 <label htmlFor="description-textarea">Description (optional):</label>
                 <textarea
@@ -99,17 +97,15 @@ const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                     placeholder="Description (optional)"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    aria-label="Description (optional)"
                 />
             </div>
 
             <div className="priority-container">
-                <label htmlFor="priority-select"></label>
+                <label htmlFor="priority-select">Select priority (optional)</label>
                 <select
                     id="priority-select"
                     value={priority}
                     onChange={(e) => setPriority(e.target.value)}
-                    aria-label="Select priority (optional)"
                 >
                     <option value="">-- Select priority (optional) --</option>
                     <option value="high">High</option>

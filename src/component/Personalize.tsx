@@ -81,7 +81,6 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
             alt={theme.alt} 
             onClick={() => handleThemeClick(theme.theme)} 
             className={selectedTheme === theme.theme ? 'selected-theme' : ''}
-            aria-label='Select theme'
           />
         ))}
       </div>
@@ -90,7 +89,6 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
         id='reset-theme-button'
         className="reset-button" 
         onClick={handleResetTheme}
-        aria-label='Reset Theme'
         >Reset Theme
       </button>
 
@@ -106,7 +104,6 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
             alt={avatar.alt} 
             onClick={() => handleAvatarClick(avatar.src)}
             className={selectedAvatar === avatar.src ? 'selected-avatar' : ''}
-            aria-label={`Select ${avatar.alt}`}
           />
         ))}
       </div>
@@ -115,7 +112,6 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
         id='reset-avatar-button'
         className="reset-button" 
         onClick={handleResetAvatar}
-        aria-label='Reset Avatar'
         >Reset Avatar
       </button>
 
@@ -124,28 +120,26 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
       <form className="nickname-form" onSubmit={handleSubmit}>
         <label htmlFor="nickname"><h2>Enter your nickname:</h2></label>
         <div>
-        <input 
-          type="text" 
-          id="nickname" 
-          value={nickname} 
-          onChange={(e) => setNicknameInput(e.target.value)} 
-          placeholder="Write nickname here"
-          aria-label='Enter nickname'
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              e.preventDefault(); 
-              setNickname(nickname); 
-              setNicknameInput(''); 
-            }
-          }}
-        />
-        <button 
-          id='save-nickname-button'
-          className="reset-button" 
-          type="submit"
-          aria-label='Save Nickname'
-          >Save
-        </button>
+          <input 
+            type="text" 
+            id="nickname" 
+            value={nickname} 
+            onChange={(e) => setNicknameInput(e.target.value)} 
+            placeholder="Write nickname here"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault(); 
+                setNickname(nickname); 
+                setNicknameInput(''); 
+              }
+            }}
+          />
+          <button 
+            id='save-nickname-button'
+            className="reset-button" 
+            type="submit"
+            >Save
+          </button>
         </div>
       </form>
 
@@ -153,7 +147,6 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
         id='done-button'
         className="done-button" 
         onClick={handleDone}
-        aria-label='Done'
         >Done
       </button>
     </div>

@@ -48,17 +48,29 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
 
     return (
         <div className="list-page">
-            <button onClick={() => navigate('/')} className="back-button">
-                <img src={arrow} alt="back to lists" /> Lists
+            <button 
+                id="back-button"
+                onClick={() => navigate('/')} 
+                className="back-button"
+            >
+                    <img src={arrow} alt="back to lists" /> 
+                    Lists
             </button>
-            <h2>{listName}</h2>
+
+            <h1>{listName}</h1>
 
             <div className="actions">
                 <Link to={`/newtask?list=${listName}`}>
-                    <button className="add-task">Add task +</button>
+                    <button 
+                        id="add-task"
+                        className="add-task">Add task +
+                    </button>
                 </Link>
 
+                <label htmlFor="filter-select">Filter tasks by:</label>
+
                 <select
+                    id="filter-select"
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
                     className="filter-select"
@@ -78,7 +90,9 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                         <div className="task-content">
                             <div className={`priority-dot ${task.priority}`}></div>
 
+                            <label htmlFor="task-checkbox">Task:</label>
                             <input
+                                id="task-checkbox"
                                 type="checkbox"
                                 checked={task.completed}
                                 onChange={() => handleCompleteTask(index)}
@@ -91,6 +105,7 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
 
                             {task.description && (
                                 <button
+                                    id="see-more"
                                     className="see-more"
                                     onClick={() =>
                                         setExpandedTaskIndex(expandedTaskIndex === index ? null : index)
@@ -102,10 +117,17 @@ const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
 
                                         
                             <div className="task-actions">
-                                <button onClick={() => handleEditTask(index)}>
+                                <button 
+                                    id="edit-task"
+                                    onClick={() => handleEditTask(index)}
+                                >
                                     <img src={edit} alt="edit task" />
                                 </button>
-                                <button onClick={() => handleDeleteTask(index)}>
+                                
+                                <button 
+                                id="delete-task"
+                                onClick={() => handleDeleteTask(index)}
+                                >
                                     <img src={trash} alt="delete task" />
                                 </button>
                             </div>
