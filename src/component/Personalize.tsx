@@ -111,10 +111,12 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
           onChange={(e) => setNicknameInput(e.target.value)} 
           placeholder="Write nickname here"
           onKeyDown={(e) => {
-            if (e.key ==="Enter") {
-                handleCreateList();
+            if (e.key === "Enter") {
+              e.preventDefault(); 
+              setNickname(nickname); 
+              setNicknameInput(''); 
             }
-        }}
+          }}
         />
         <button className="reset-button" type="submit">Save</button>
         </div>
