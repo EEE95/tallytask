@@ -7,6 +7,7 @@ import SpringBucket from "./assets/springbucket.png";
 import { HomeType, PremadeList } from "./types";
 import { premadeLists } from "./component/BucketList";
 import Confirm from "./component/Confirm";
+import Nocreate from "./component/Nocreate";
 
 
 const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
@@ -15,6 +16,9 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
         const saved = localStorage.getItem('createdPremadeLists');
         return saved ? JSON.parse(saved) : [];
     });
+
+    const [showNocreate, setShowNocreate] = useState<boolean>(false);
+    const [nocreateMessage, setNocreateMessage] = useState<string>("");
 
     const [showConfirm, setShowConfirm] = useState(false);
     const [listToDelete, setListToDelete] = useState<number | null>(null);
@@ -66,7 +70,8 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
 
     const handleShowPremadeList = (listName: string) => {
         if (createdPremadeLists.includes(listName)) {
-            alert(`You already have a ${listName}`);
+            setNocreateMessage(`..you already have a ${listName}`);
+            setShowNocreate(true);
             return;
         }
 
@@ -172,6 +177,8 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
                     className={`reveal-image ${createdPremadeLists.includes('Spring Bucket List') ? 'faded' : ''}`}
                 />
             </div>
+
+            <Nocreate show={showNocreate} onClose={() => setShowNocreate(false)} message={nocreateMessage} />
         </div>
     );
 }
