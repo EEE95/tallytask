@@ -131,6 +131,9 @@ label {
 .home-page {
   margin: 20px;
 }
+.home-page h1 {
+  margin-bottom: 15px;
+}
 .home-page a {
   text-decoration: none;
 }
@@ -203,12 +206,13 @@ label {
 .home-page .delete-button img {
   width: 20px;
   height: 20px;
+  margin-top: 8px;
 }
 .home-page .delete-button:hover {
   transform: scale(1.2);
 }
 .home-page .list-link {
-  width: 90%;
+  width: 94%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -221,7 +225,6 @@ label {
 .home-page .list-link .task-count {
   font-size: 12px;
   font-weight: 200;
-  margin-bottom: 4px;
   font-family: "Roboto", sans-serif;
 }
 .home-page .no-tasks-text {
@@ -256,7 +259,7 @@ label {
   width: 90%;
   text-align: center;
 }
-.new-task h2 {
+.new-task h1 {
   padding-bottom: 10px;
   text-align: left;
 }
@@ -354,8 +357,9 @@ label {
   font-family: "Roboto", sans-serif;
   /*prioritet visualiseres med en prik*/
 }
-.list-page h2 {
+.list-page h1 {
   margin: 10px;
+  margin-top: 20px;
 }
 .list-page .task-item {
   margin-bottom: 15px;
@@ -479,7 +483,7 @@ label {
 .badge-display {
   margin: 1em;
 }
-.badge-display h2 {
+.badge-display h1 {
   margin-bottom: 10px;
 }
 .badge-display .badge-streak {
