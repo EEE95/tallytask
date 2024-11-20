@@ -171,6 +171,12 @@ h3, h4{
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
+
+        &:hover{
+            cursor: pointer;
+            background-color: partial.$accent-color;
+            color: white;
+        }
     }
     
     .delete-button {
@@ -182,6 +188,10 @@ h3, h4{
             width: 20px;
             height: 20px;
         }
+
+        &:hover{
+            transform: scale(1.2);
+        }
     }
 
     .list-link{
@@ -190,11 +200,19 @@ h3, h4{
         justify-content: space-between;
         align-items: center;
 
+        &:hover{
+            cursor: pointer;
+            background-color: partial.$accent-color;
+            color: white;
+        }
+        
+
         .task-count{
             font-size: 12px;
             font-weight: 200;
             margin-bottom: 4px;
             font-family: partial.$font-text;
+
         }
     }
 
@@ -386,6 +404,10 @@ h3, h4{
                         img {
                             width: 20px;
                             height: 20px;
+                        }
+
+                        &:hover{
+                            transform: scale(1.2);
                         }
                     }
                 }
