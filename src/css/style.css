@@ -14,18 +14,13 @@ p {
 }
 
 h1 {
-  font-family: "Caveat Brush", serif;
-  font-size: 35px;
-}
-
-h2 {
   font-family: "eigerdals", sans-serif;
   font-size: 30px;
 }
 
-h3, h4 {
+h2, h3, h4 {
   font-family: "eigerdals", sans-serif;
-  font-family: 24px;
+  font-size: 24px;
 }
 
 .body {
@@ -36,6 +31,10 @@ h3, h4 {
   padding-bottom: 100px;
   background-color: #FFFCF5;
   min-height: 100vh;
+}
+
+label {
+  display: none;
 }
 
 /* header */
@@ -50,8 +49,10 @@ h3, h4 {
   font-size: 12px;
   margin-top: 20px;
 }
-.header h1 {
+.header .welcome-text {
   margin-bottom: 20px;
+  font-family: "Caveat Brush", serif;
+  font-size: 35px;
 }
 .header .right {
   display: flex;

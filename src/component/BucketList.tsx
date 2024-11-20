@@ -45,7 +45,7 @@ export const premadeLists = [
 const BucketList = () => {
     return (
         <div>
-            <h2>Bucket Lists</h2>
+            <h1>Bucket Lists</h1>
             {premadeLists.map((list, index) => (
                 <div key={index}>
                     <h3>{list.name}</h3>

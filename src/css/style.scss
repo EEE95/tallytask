@@ -13,19 +13,15 @@ p{
 }
 
 h1{
-    font-family: partial.$font-titel;
-    font-size: 35px;
-}
-
-h2{
     font-family: partial.$font-header;
     font-size: 30px;
 }
 
-h3, h4{
+h2, h3, h4{
     font-family: partial.$font-header;
-    font-family: 24px;
+    font-size: 24px;
 }
+
 
 .body{
     background-color: partial.$bg-color;
@@ -36,6 +32,10 @@ h3, h4{
     background-color: partial.$bg-color;
     min-height: 100vh;
   }
+
+label{
+    display: none;
+}
 
 /* header */
 .header {
@@ -50,8 +50,10 @@ h3, h4{
         margin-top: 20px;
     }
 
-    h1{
+    .welcome-text{
         margin-bottom: 20px;
+        font-family: partial.$font-titel;
+        font-size: 35px;
     }
 
     .right{

@@ -28,12 +28,12 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
   };
 
     const avatars = [
-      'src/assets/kat.png',
-      'src/assets/raev.png',
-      'src/assets/mus.png',
-      'src/assets/pingvin.png',
-      'src/assets/faar.png',
-      'src/assets/hund.png'
+      { src: 'src/assets/kat.png', alt: 'Cat avatar' },
+      { src: 'src/assets/raev.png', alt: 'Fox avatar' },
+      { src: 'src/assets/mus.png', alt: 'Mouse avatar' },
+      { src: 'src/assets/pingvin.png', alt: 'Penguin avatar' },
+      { src: 'src/assets/faar.png', alt: 'Sheep avatar' },
+      { src: 'src/assets/hund.png', alt: 'Dog avatar' }
     ];
 
     const themes = [
@@ -71,38 +71,58 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
   return (
     <div className="p-styling">
       <h1>Personalize Your Taskmanager</h1>
-      <h3>Choose your theme</h3>
+      <h2>Choose your theme</h2>
       <div className="theme-container">
         {themes.map((theme, index) => (
           <img 
+            id='theme-image'
             key={index} 
             src={theme.src} 
             alt={theme.alt} 
             onClick={() => handleThemeClick(theme.theme)} 
             className={selectedTheme === theme.theme ? 'selected-theme' : ''}
+            aria-label='Select theme'
           />
         ))}
       </div>
-      <button className="reset-button" onClick={handleResetTheme}>Reset Theme</button>
+
+      <button 
+        id='reset-theme-button'
+        className="reset-button" 
+        onClick={handleResetTheme}
+        aria-label='Reset Theme'
+        >Reset Theme
+      </button>
+
       <hr />
 
-      <h3>Choose profile avatar</h3>
+      <h2>Choose profile avatar</h2>
       <div className="avatar-grid">
         {avatars.map((avatar, index) => (
           <img 
+            id='avatar-image'
             key={index} 
-            src={avatar} 
-            alt={`Avatar ${index}`} 
-            onClick={() => handleAvatarClick(avatar)}
-            className={selectedAvatar === avatar ? 'selected-avatar' : ''}
+            src={avatar.src} 
+            alt={avatar.alt} 
+            onClick={() => handleAvatarClick(avatar.src)}
+            className={selectedAvatar === avatar.src ? 'selected-avatar' : ''}
+            aria-label={`Select ${avatar.alt}`}
           />
         ))}
       </div>
-      <button className="reset-button" onClick={handleResetAvatar}>Reset Avatar</button>
+
+      <button 
+        id='reset-avatar-button'
+        className="reset-button" 
+        onClick={handleResetAvatar}
+        aria-label='Reset Avatar'
+        >Reset Avatar
+      </button>
+
       <hr />
       
       <form className="nickname-form" onSubmit={handleSubmit}>
-        <label htmlFor="nickname"><h3>Enter your nickname:</h3></label>
+        <label htmlFor="nickname"><h2>Enter your nickname:</h2></label>
         <div>
         <input 
           type="text" 
@@ -110,6 +130,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
           value={nickname} 
           onChange={(e) => setNicknameInput(e.target.value)} 
           placeholder="Write nickname here"
+          aria-label='Enter nickname'
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               e.preventDefault(); 
@@ -118,10 +139,23 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
             }
           }}
         />
-        <button className="reset-button" type="submit">Save</button>
+        <button 
+          id='save-nickname-button'
+          className="reset-button" 
+          type="submit"
+          aria-label='Save Nickname'
+          >Save
+        </button>
         </div>
       </form>
-      <button className="done-button" onClick={handleDone}>Done</button>
+
+      <button 
+        id='done-button'
+        className="done-button" 
+        onClick={handleDone}
+        aria-label='Done'
+        >Done
+      </button>
     </div>
   );
 };

@@ -17,45 +17,43 @@ import badge_bl_christmas from '../assets/badge_bl_christmas.png';
 import badge_bl_easter from '../assets/badge_bl_easter.png';
 
 
-import React from 'react';
-
 const Badges = () => {
     return (
         <div className='badge-display'>
-            <h2>BADGES</h2>
+            <h1>BADGES</h1>
             <div className='badge-streak'>
-                <h3>Streak</h3>
+                <h2>Streak</h2>
                 <div>
-                <img src={streak_visited} alt='streak badge visited' />
-                <img src={streak_used} alt='streak badge used' />
+                    <img src={streak_visited} alt='streak badge visited' />
+                    <img src={streak_used} alt='streak badge used' />
                 </div>
             </div>
             <div className='badge-tasks'>
-                <h3>Tasks</h3>
+                <h2>Tasks</h2>
                 <div>
-                <img src={badge_taskdone} alt='badge that counts tasks done' />
-                <img src={badge_listdone} alt='badge that counts lists done' />
-                <img src={badge_empty_round} alt='empty badge' />
+                    <img src={badge_taskdone} alt='badge that counts tasks done' />
+                    <img src={badge_listdone} alt='badge that counts lists done' />
+                    <img src={badge_empty_round} alt='empty badge' />
                 </div>
             </div>
             <div className='badge-bucketlists'>
-                <h3>Bucketlists</h3>
+                <h2>Bucketlists</h2>
                 <div>
-                <img src={badge_bl_autumn} alt='badge for autumn bucketlist' />
-                <img src={badge_bl_winter} alt='badge for winter bucketlist' />
-                <img src={badge_bl_christmas} alt='badge for christmas bucketlist' />
-                <img src={badge_bl_spring} alt='badge for spring bucketlist' />
-                <img src={badge_bl_easter} alt='badge for easter bucketlist' />
-                <img src={badge_bl_summer} alt='badge for summer bucketlist' />
+                    <img src={badge_bl_autumn} alt='badge for autumn bucketlist' />
+                    <img src={badge_bl_winter} alt='badge for winter bucketlist' />
+                    <img src={badge_bl_christmas} alt='badge for christmas bucketlist' />
+                    <img src={badge_bl_spring} alt='badge for spring bucketlist' />
+                    <img src={badge_bl_easter} alt='badge for easter bucketlist' />
+                    <img src={badge_bl_summer} alt='badge for summer bucketlist' />
                 </div>
             </div>
             <div className='badge-use'>
-                <h3>Use of app</h3>
+                <h2>Use of app</h2>
                 <div>
-                <img src={badge_firstlistcreated} alt='badge for first list created' />
-                <img src={badge_firstlistshared} alt='badge for first list shared' />
-                <img src={badge_5days} alt='badge for using app 5 days in a row' />
-                <img src={badge_shield_empty} alt='empty badge' />
+                    <img src={badge_firstlistcreated} alt='badge for first list created' />
+                    <img src={badge_firstlistshared} alt='badge for first list shared' />
+                    <img src={badge_5days} alt='badge for using app 5 days in a row' />
+                    <img src={badge_shield_empty} alt='empty badge' />
                 </div>
             </div>
             

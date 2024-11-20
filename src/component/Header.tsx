@@ -49,14 +49,13 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
             <div className={`left ${theme ? 'text-background' : ''}`}>
                 <img className='logo' src={logo} alt='TallyTask logo' />
                 <TodaysDay />
-                <h1>Hi {nickname}!</h1>
+                <p className='welcome-text'>Hi {nickname}!</p>
                 <blockquote>
                 <p dangerouslySetInnerHTML={{ __html: quote }} />
                 </blockquote>
             </div>
 
             <div className={`right ${theme ? 'text-background2' : ''}`}>
-                {/* Link to Personalize page */}
                 <Link to="/personalize">
                     <button className="personalize-button">
                         <img 
@@ -68,9 +67,6 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
                 </Link>
                 
             </div>
-
-            
-        
         </div>
     );
 };

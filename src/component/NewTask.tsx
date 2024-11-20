@@ -63,7 +63,7 @@ const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
 
     return (
         <div className="new-task">
-            <h2>{editMode ? "Edit Task" : "New Task"}</h2>
+            <h1>{editMode ? "Edit Task" : "New Task"}</h1>
 
             <div>
                 <label htmlFor="list-select"></label>
@@ -72,6 +72,7 @@ const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                     value={selectedList}
                     onChange={(e) => setSelectedList(e.target.value)}
                     disabled={editMode}
+                    aria-label="Select a list"
                 >
                     <option value="">Lists</option>
                     {lists.map((list, index) => (
@@ -83,16 +84,22 @@ const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
             </div>
 
             <div>
+                <label htmlFor="task-input">Task:</label>
                 <input
+                    id="task-input"
                     type="text"
                     placeholder="Task"
                     value={task}
                     onChange={(e) => setTask(e.target.value)}
+                    aria-label="Task"
                 />
+                <label htmlFor="description-textarea">Description (optional):</label>
                 <textarea
+                    id="description-textarea"
                     placeholder="Description (optional)"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                    aria-label="Description (optional)"
                 />
             </div>
 
@@ -102,6 +109,7 @@ const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
                     id="priority-select"
                     value={priority}
                     onChange={(e) => setPriority(e.target.value)}
+                    aria-label="Select priority (optional)"
                 >
                     <option value="">-- Select priority (optional) --</option>
                     <option value="high">High</option>
@@ -112,7 +120,12 @@ const NewTask: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
 
             {error && <p style={{ color: "red" }}>{error}</p>}
 
-            <button onClick={handleSaveTask}>
+            <button 
+                id="save-task-button"
+                onClick={handleSaveTask}
+                aria-label={editMode ? "Save changes to the task" : "Create a new task"}
+            >
+
                 {editMode ? "Save Changes" : "Create"}
             </button>
         </div>

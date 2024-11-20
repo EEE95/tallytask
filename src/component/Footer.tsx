@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import home from '../assets/home.png';
 import plus from '../assets/plus.png';
-import badge from '../assets/badges-knap.png'; // Ensure this file exists at the specified path
+import badge from '../assets/badges-knap.png'; 
 
 interface FooterProps {
     theme: string | null;
@@ -15,9 +15,9 @@ interface FooterProps {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat' }}>
             <div className="button-container">
-                <Link to="/"><img className="link-button" src={home} alt="home button" /></Link>
-                <Link to="/newtask"><img className="link-button" src={plus} alt="add new task button" /></Link>
-                <Link to="/badges"><img className="link-button" src={badge} alt="how much have I used the app badges" /></Link>
+                <Link to="/"><img className="link-button" src={home} alt="go to home" /></Link>
+                <Link to="/newtask"><img className="link-button" src={plus} alt="add new task" /></Link>
+                <Link to="/badges"><img className="link-button" src={badge} alt="go to badgepage" /></Link>
             </div>
             <p>© 2024 TallyTask</p>
         </div>
