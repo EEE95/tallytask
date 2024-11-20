@@ -2,7 +2,7 @@ import React from 'react';
 
 export const premadeLists = [
     {
-        name: 'Autumn Bucket List',
+        name: 'Autumn Bucketlist',
         tasks: [
             { name: 'Thrift a cozy sweater', completed: false },
             { name: 'Stop by the farmer’s market', completed: false },
@@ -15,7 +15,7 @@ export const premadeLists = [
         ],
     },
     {
-        name: 'Summer Bucket List',
+        name: 'Summer Bucketlist',
         tasks: [
             { name: 'Make homemade lemonade', completed: false },
             { name: 'Try a new ice cream flavor', completed: false },
@@ -28,7 +28,7 @@ export const premadeLists = [
         ],
     },
     {
-        name: 'Spring Bucket List',
+        name: 'Spring Bucketlist',
         tasks: [
             { name: 'Learn a new recipe for spring', completed: false },
             { name: 'Explore parts of town you’ve never been to', completed: false },

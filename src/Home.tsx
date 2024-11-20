@@ -70,7 +70,7 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
 
     const handleShowPremadeList = (listName: string) => {
         if (createdPremadeLists.includes(listName)) {
-            setNocreateMessage(`..you already have a ${listName}`);
+            setNocreateMessage(`..the ${listName} is already created!`);
             setShowNocreate(true);
             return;
         }
@@ -158,23 +158,23 @@ const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
                 <img 
                     id="autumn-bucketlist"
                     src={AutumnBucket} 
-                    alt="Reveal Autumn Bucket List" 
-                    onClick={() => handleShowPremadeList('Autumn Bucket List')} 
-                    className={`reveal-image ${createdPremadeLists.includes('Autumn Bucket List') ? 'faded' : ''}`}
+                    alt="Reveal Autumn Bucketlist" 
+                    onClick={() => handleShowPremadeList('Autumn Bucketlist')} 
+                    className={`reveal-image ${createdPremadeLists.includes('Autumn Bucketlist') ? 'faded' : ''}`}
                 />
                 <img 
                     id="summer-bucketlist"
                     src={SummerBucket} 
-                    alt="Reveal Summer Bucket List" 
-                    onClick={() => handleShowPremadeList('Summer Bucket List')} 
-                    className={`reveal-image ${createdPremadeLists.includes('Summer Bucket List') ? 'faded' : ''}`}
+                    alt="Reveal Summer Bucketlist" 
+                    onClick={() => handleShowPremadeList('Summer Bucketlist')} 
+                    className={`reveal-image ${createdPremadeLists.includes('Summer Bucketlist') ? 'faded' : ''}`}
                 />
                 <img 
                     id="spring-bucketlist"
                     src={SpringBucket} 
-                    alt="Reveal Spring Bucket List" 
-                    onClick={() => handleShowPremadeList('Spring Bucket List')} 
-                    className={`reveal-image ${createdPremadeLists.includes('Spring Bucket List') ? 'faded' : ''}`}
+                    alt="Reveal Spring Bucketlist" 
+                    onClick={() => handleShowPremadeList('Spring Bucketlist')} 
+                    className={`reveal-image ${createdPremadeLists.includes('Spring Bucketlist') ? 'faded' : ''}`}
                 />
             </div>
 
