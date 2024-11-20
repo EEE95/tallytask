@@ -522,6 +522,10 @@ h3, h4 {
   font-family: "eigerdals", sans serif;
   cursor: pointer;
 }
+.p-styling .reset-button:hover {
+  background-color: #FFFCF5;
+  color: #010101;
+}
 .p-styling .nickname-form input {
   margin: 1em 0 1em 1em;
   padding: 1em;
@@ -539,4 +543,8 @@ h3, h4 {
   font-family: "eigerdals", sans serif;
   font-size: 1.2em;
   cursor: pointer;
+}
+.p-styling .done-button:hover {
+  background-color: #FFFCF5;
+  color: #010101;
 }/*# sourceMappingURL=style.css.map */
