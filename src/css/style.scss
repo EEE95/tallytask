@@ -603,6 +603,10 @@ h3, h4{
         border-radius: 10px;
         font-family: 'eigerdals', sans serif;
         cursor: pointer;
+        &:hover{
+            background-color: partial.$bg-color;
+            color: partial.$text-color;
+        }
     }
 
     .nickname-form{
@@ -624,5 +628,9 @@ h3, h4{
         font-family: 'eigerdals', sans serif;
         font-size: 1.2em;
         cursor: pointer;
+        &:hover{
+            background-color: partial.$bg-color;
+            color: partial.$text-color;
+        }
     }
 }
