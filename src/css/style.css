@@ -210,7 +210,11 @@ h3, h4 {
   border-radius: 10px;
   margin-right: 1em;
 }
-.home-page .reveal-image.faded {
+.home-page .reveal-image:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+.home-page .reveal-image .reveal-image.faded {
   opacity: 0.5;
   cursor: not-allowed;
 }
