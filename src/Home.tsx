@@ -4,10 +4,11 @@ import trash from "./assets/trash.png";
 import AutumnBucket from "./assets/autumnbucket.png";
 import SummerBucket from "./assets/summerbucket.png";
 import SpringBucket from "./assets/springbucket.png";
-import { HomeType } from "./types";
-import { premadeLists } from "./component/BucketList";
+import { HomeType, PremadeList } from "./types";
+import { premadeLists } from "./component/Bucketlist";
 
-function Home({ lists, setLists, tasks, setTasks }: HomeType) {
+
+const Home: React.FC<HomeType> = ({ lists, setLists, tasks, setTasks }) => {
     const [newListName, setNewListName] = useState("");
     const [createdPremadeLists, setCreatedPremadeLists] = useState<string[]>(() => {
         const saved = localStorage.getItem('createdPremadeLists');
@@ -40,13 +41,13 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
 
         // Hvis listen slettes, skal den også fjernes fra tasks
         const updatedTasks = { ...tasks };
-        delete updatedTasks[lists[index]]; // Fjern tasks for den slettede liste
+        delete updatedTasks[listName]; // Fjern tasks for den slettede liste
         setTasks(updatedTasks);
 
         setCreatedPremadeLists((prev) => prev.filter((name) => name !== listName));
     };
 
-    const countCompletedTasks = (listName: string) => {
+    const countCompletedTasks = (listName: string): number => {
         return tasks[listName]?.filter((task: any) => task.completed).length || 0;
     };
 
@@ -58,7 +59,8 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
 
         const list = premadeLists.find((list) => list.name === listName);
         if (list && !lists.includes(list.name)) {
-            setLists((prevLists) => [...prevLists, list.name].sort());
+            const updatedLists = [...lists, list.name].sort();
+            setLists(updatedLists);
             setTasks((prevTasks) => ({ ...prevTasks, [list.name]: list.tasks }));
             setCreatedPremadeLists((prev) => [...prev, listName]);
         }
@@ -105,7 +107,7 @@ function Home({ lists, setLists, tasks, setTasks }: HomeType) {
                 ))}
             </ul>
             )}
-
+            <h3 className="bucketlist-overskrift" >Premade bucketlists for you.</h3>
             <div className="reveal-premade-lists">
                 <img 
                     src={AutumnBucket} 

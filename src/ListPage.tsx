@@ -3,13 +3,13 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import trash from './assets/trash.png';
 import edit from './assets/edit.png';
 import arrow from './assets/arrow.png'
-import { RouteParams, HomeType } from "./types";
+import { RouteParams, HomeType, Task } from "./types";
 
 const ListPage: React.FC<HomeType> = ({ lists, tasks, setTasks }) => {
     const { id } = useParams<RouteParams>();
     const navigate = useNavigate();
 
-    const listName = id ? lists[id] : "defaultListName";
+    const listName = id ? lists[parseInt(id)] : "defaultListName";
     const listTasks = tasks[listName] || [];
 
     const [filter, setFilter] = useState<string>("all");

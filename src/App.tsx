@@ -7,18 +7,19 @@ import ListPage from './ListPage';
 import NewTask from './component/NewTask';
 import Personalize from './component/Personalize';
 import Badges from './component/Badges';
+import { Task } from './types';
 
-const App = () => {
+const App: React.FC = () => {
     const [nickname, setNickname] = useState<string>(
         localStorage.getItem('nickname') || 'Tallybuddy'
     );
 
-    const initializeLists = () => {
+    const initializeLists = () : string [] => {
         const savedLists = localStorage.getItem('lists');
         return savedLists ? JSON.parse(savedLists) : [];
     };
 
-    const initializeTasks = () => {
+    const initializeTasks = (): { [key: string]: Task[] } => {
         const savedTasks = localStorage.getItem('tasks');
         return savedTasks ? JSON.parse(savedTasks) : {};
     };
@@ -112,11 +113,11 @@ const App = () => {
                   />
                   <Route 
                     path="/list/:id" 
-                    element={<ListPage lists={lists} tasks={tasks} setTasks={setTasks} />} 
+                    element={<ListPage lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />} 
                   />
                   <Route 
                       path="/newtask" 
-                      element={<NewTask lists={lists} tasks={tasks} setTasks={setTasks} />} 
+                      element={<NewTask lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />} 
                   />
                   <Route 
                       path="/personalize" 
@@ -132,7 +133,7 @@ const App = () => {
                     // Desktop: Show everything at once
                     <div className="desktop-layout">
                         <Home lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />
-                        <ListPage lists={lists} tasks={tasks} setTasks={setTasks} />
+                        <ListPage lists={lists} setLists={setLists} tasks={tasks} setTasks={setTasks} />
                         <Badges />
                     </div>
                 )}
