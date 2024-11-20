@@ -131,6 +131,9 @@ label {
 .home-page {
   margin: 20px;
 }
+.home-page h1 {
+  margin-bottom: 15px;
+}
 .home-page a {
   text-decoration: none;
 }
@@ -356,6 +359,7 @@ label {
 }
 .list-page h1 {
   margin: 10px;
+  margin-top: 20px;
 }
 .list-page .task-item {
   margin-bottom: 15px;
