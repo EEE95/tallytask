@@ -109,7 +109,8 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
       </button>
 
       <hr />
-
+      
+      {/* Avatar selection */}
       <h2>Choose profile avatar</h2>
       <div className="avatar-grid">
         {avatars.map((avatar, index) => (
@@ -118,12 +119,13 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
             key={index} 
             src={avatar.src} 
             alt={avatar.alt} 
-            onClick={() => handleAvatarClick(avatar.src)}
-            className={selectedAvatar === avatar.src ? 'selected-avatar' : ''}
+            onClick={() => handleAvatarClick(avatar.src)} // Handle selecting an avatar
+            className={selectedAvatar === avatar.src ? 'selected-avatar' : ''} // Add the selected-avatar class if the avatar is selected
           />
         ))}
       </div>
 
+      {/* Reset avatar button */}
       <button 
         id='reset-avatar-button'
         className="reset-button" 
@@ -132,7 +134,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
       </button>
 
       <hr />
-      
+
      {/* Form for entering the nickname */}
       <form className="nickname-form" onSubmit={handleSubmit}>  
         <label htmlFor="nickname"><h2>Enter your nickname:</h2></label>
@@ -151,6 +153,7 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
               }
             }}
           />
+          {/* Save nickname button */}
           <button 
             id='save-nickname-button'
             className="reset-button" 
@@ -159,7 +162,8 @@ const Personalize: React.FC<PersonalizeProps> = ({ setSelectedAvatar, setNicknam
           </button>
         </div>
       </form>
-
+              
+      {/* Done button */}
       <button 
         id='done-button'
         className="done-button" 
