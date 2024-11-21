@@ -18,7 +18,13 @@ const Nocreate: React.FC<NocreateProps> = ({ show, onClose, message }) => {
             <div className="nocreate">
                 <div className="nocreate-header">
                     <h2>Great choice, but..</h2>
-                    <button onClick={onClose} className="close-button">&times;</button>
+                    <button 
+                    id='close-button'
+                    onClick={onClose} 
+                    className="close-button"
+                    aria-label="Close">
+                    &times;
+                    </button>
                 </div>
                 <div className="nocreate-body">
                     <p>{message}</p>
