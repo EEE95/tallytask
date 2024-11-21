@@ -16,11 +16,13 @@ import badge_bl_winter from '../assets/badge_bl_winter.png';
 import badge_bl_christmas from '../assets/badge_bl_christmas.png';
 import badge_bl_easter from '../assets/badge_bl_easter.png';
 
-
+// Visual component that displays badges earned by the user
 const Badges = () => {
     return (
         <div className='badge-display'>
             <h1>BADGES</h1>
+
+             {/* Section to display streak-related badges */}
             <div className='badge-streak'>
                 <h2>Streak</h2>
                 <div>
@@ -28,6 +30,8 @@ const Badges = () => {
                     <img src={streak_used} alt='streak badge used' />
                 </div>
             </div>
+
+            {/* Section to display task-related badges */}
             <div className='badge-tasks'>
                 <h2>Tasks</h2>
                 <div>
@@ -36,6 +40,8 @@ const Badges = () => {
                     <img src={badge_empty_round} alt='empty badge' />
                 </div>
             </div>
+
+            {/* Section to display bucketlist-related badges */}
             <div className='badge-bucketlists'>
                 <h2>Bucketlists</h2>
                 <div>
@@ -47,6 +53,8 @@ const Badges = () => {
                     <img src={badge_bl_summer} alt='badge for summer bucketlist' />
                 </div>
             </div>
+
+            {/* Section to display app usage-related badges */}
             <div className='badge-use'>
                 <h2>Use of app</h2>
                 <div>
