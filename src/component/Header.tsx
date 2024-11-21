@@ -5,14 +5,16 @@ import gear from '../assets/gear.png';
 import TodaysDay from './Date';
 import { Link } from 'react-router-dom';
 
+// Define the props for the Header component
 interface HeaderProps {
     nickname: string;
     selectedAvatar: string | null;
     theme: string | null;
   }
 
+// Define the Header component
 const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
-
+    // List of motivational quotes
     const quotes = [
         "'The secret of getting ahead is getting started' - <em>Mark Twain</em>",
         "'It always seems impossible until it´s done' - <em>Nelson Mandela</em>",
@@ -24,18 +26,21 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
         "'You can do anything you set your mind to' - <em>Ben Franklin</em>",
     ];
 
+    // Function to get the daily quote based on the day of the year
     const getDailyQoute = () => {
         const today = new Date();
         const dayOfYear = today.getDate();
         return quotes[dayOfYear % quotes.length];
     };
 
+    // State for the daily quote
     const [quote, setQuote] = useState(getDailyQoute());
 
+    // Update the quote every 24 hours
     useEffect(() => {
         const interval = setInterval(() => {
             setQuote(getDailyQoute());
-        }, 86400000);
+        }, 86400000); // 24 hours in milliseconds
         return () => clearInterval(interval);
     }, []);
 
@@ -43,24 +48,27 @@ const Header: React.FC<HeaderProps> = ({ nickname, selectedAvatar, theme }) => {
     return (
         <header 
             className='header' 
-            style={{ 
+            style={{ // Set the background image based on the selected theme
                 backgroundImage: theme ? `url(${theme})` : 'none',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat' 
             }}
         >
+            {/* Left side of the header */}
             <div className={`left ${theme ? 'text-background' : ''}`}>
                 <img className='logo' src={logo} alt='TallyTask logo' />
                 <TodaysDay />
                 <p className='welcome-text'>Hi {nickname}!</p>
-                <blockquote>
+                <blockquote> {/* Display the daily quote */}
                     <p dangerouslySetInnerHTML={{ __html: quote }} />
                 </blockquote>
             </div>
 
-            <div className={`right ${theme ? 'text-background2' : ''}`}>
-                <Link to="/personalize" aria-label="Personalize your task manager">
+            {/* Right side of the header */}
+            <div className={`right ${theme ? 'text-background2' : ''}`}> 
+                <Link to="/personalize" aria-label="Personalize your task manager"> 
+                {/* Display the selected avatar or the gear icon if no avatar is selected */}
                     <button className="personalize-button">
                         <img 
                             src={selectedAvatar || gear} 
