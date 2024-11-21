@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Define the premade lists with their tasks
 export const premadeLists = [
     {
         name: 'Autumn Bucketlist',
@@ -42,15 +43,18 @@ export const premadeLists = [
     },
 ];
 
+// Define the BucketList component
 const BucketList = () => {
     return (
         <div>
             <h1>Bucket Lists</h1>
             
+            {/* Map over the premadeLists array to render each list */}
             {premadeLists.map((list, index) => (
                 <section key={index} aria-labelledby={`list-heading-${index}`}>
                     <h2 id={`list-heading-${index}`}>{list.name}</h2>
                     <ul>
+                        {/* Map over the tasks array to render each task */}
                         {list.tasks.map((task, taskIndex) => (
                             <li key={taskIndex}>
                                 {task.name}
