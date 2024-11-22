@@ -16,7 +16,7 @@ Installation og opsætning:
 
 2. Installer afhængigheder
     
-    ##2.1 Åben terminalen på den givne mappe / indsæt mappen i terminalen, for at sikre, at du befinder dig i projektets rodmappe. Dobbelttjek ved at skrive "cd tasktally", en kommando, der sikrer, at du befinder dig i taskmanagerens mappe. 
+    ##2.1 Åben terminalen på den givne mappe / indsæt mappen i terminalen, for at sikre, at du befinder dig i projektets rodmappe. Dobbelttjek ved at skrive "cd <mappenavn>", en kommando, der sikrer, at du befinder dig i taskmanagerens mappe. 
 
     ##2.2 Kør følgende for at installere alle nødvendige afhængigheder:
     
